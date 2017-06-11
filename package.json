@@ -1,0 +1,61 @@
+{
+  "name": "create-npm",
+  "version": "0.0.0",
+  "description": "Bootstrap npm packages using Yarn",
+  "keywords": [
+    "yarn",
+    "npm",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/vinsonchuong/create-npm",
+  "bugs": "https://github.com/vinsonchuong/create-npm/issues",
+  "license": "MIT",
+  "author": "Vinson Chuong <vinsonchuong@gmail.com>",
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.js",
+  "bin": "./src/bin/create-npm.js",
+  "repository": "vinsonchuong/create-npm",
+  "scripts": {
+    "test": "prettier --no-semi --single-quote --write '{src,test}/**/*.js' && standard -v --fix && flow && ava",
+    "prepack": "build-esm"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-plugin-package-name-import": "^1.0.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "build-esm": "^2.0.2",
+    "flow-bin": "^0.47.0",
+    "prettier": "^1.4.4",
+    "standard-esnext": "^2.0.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "stage-0",
+      "flow"
+    ],
+    "plugins": [
+      "package-name-import"
+    ]
+  },
+  "ava": {
+    "concurrency": 8,
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  }
+}
