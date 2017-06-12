@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+require('../defineBinFixture')({
+  'config --get user.name': 'Vinson Chuong',
+  'config --get user.email': 'vinsonchuong@gmail.com'
+})
