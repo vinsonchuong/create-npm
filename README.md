@@ -12,6 +12,7 @@ Running the above command will:
 
 * Bootstrap a JavaScript project with:
   * Support for ES.Next via [Babel](https://babeljs.io/)
+  * Type checking via [Flow](https://flow.org/)
   * Testing via [AVA](https://github.com/avajs/ava)
   * Linting via [Standard](https://github.com/feross/standard)
   * Code Style via [Prettier](https://github.com/prettier/prettier)
