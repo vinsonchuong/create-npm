@@ -21,7 +21,9 @@
     "test": "prettier --no-semi --single-quote --write '{src,test}/**/*.js' && standard -v --fix && flow && ava",
     "prepack": "build-esm"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-promise-es6": "^0.3.2"
+  },
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-plugin-package-name-import": "^1.0.0",
@@ -31,7 +33,6 @@
     "babel-register": "^6.24.1",
     "build-esm": "^2.0.2",
     "flow-bin": "^0.47.0",
-    "node-promise-es6": "^0.3.2",
     "prettier": "^1.4.4",
     "standard-esnext": "^2.0.2"
   },

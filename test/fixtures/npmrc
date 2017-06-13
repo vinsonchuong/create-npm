@@ -1,0 +1,4 @@
+prefix=/home/vinsonchuong/.npm
+cache=/home/vinsonchuong/.npm/cache
+python=python2
+//registry.npmjs.org/:_authToken=11111111-2222-3333-4444-555555555555
