@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+const path = require('path')
+
+const npmrcFixturePath = path.resolve(__dirname, '..', 'npmrc')
+
+require('../defineBinFixture')({
+  'config get userconfig': npmrcFixturePath
+})
