@@ -5,11 +5,8 @@ import { getNpmToken } from 'create-npm/src/actions'
 
 useBinFixtures()
 
-test.beforeEach(t => {
-  process.env.NPM_AUTH_TOKEN = ''
-})
-
 test.serial('reading npm auth token from .npmrc', async t => {
+  process.env.NPM_AUTH_TOKEN = ''
   t.is(await getNpmToken(), '11111111-2222-3333-4444-555555555555')
 })
 
