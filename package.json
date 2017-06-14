@@ -33,6 +33,7 @@
     "babel-register": "^6.24.1",
     "build-esm": "^2.0.2",
     "flow-bin": "^0.47.0",
+    "github-api": "^3.0.0",
     "prettier": "^1.4.4",
     "standard-esnext": "^2.0.2"
   },
