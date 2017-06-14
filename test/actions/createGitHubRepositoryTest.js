@@ -4,8 +4,7 @@ import GitHub from 'github-api'
 import { removeDirectory } from 'create-npm/src/io'
 import { createGitHubRepository } from 'create-npm/src/actions'
 
-const gitHubToken = '5668f3241d20e5ffa6b79abf02c3058eb71f58ed'
-const gitHub = new GitHub({ token: gitHubToken })
+const gitHub = new GitHub({ token: process.env.GITHUB_TEST_TOKEN })
 
 test.afterEach.always(async t => {
   await gitHub.getRepo('test-create-npm', 'test-repo').deleteRepo()
@@ -13,7 +12,7 @@ test.afterEach.always(async t => {
 })
 
 test('creates a GitHub repository with the given name', async t => {
-  process.env.GITHUB_TOKEN = gitHubToken
+  process.env.GITHUB_TOKEN = process.env.GITHUB_TEST_TOKEN
   await createGitHubRepository('test-repo')
 
   const repositories = await gitHub.getUser().listRepos()
