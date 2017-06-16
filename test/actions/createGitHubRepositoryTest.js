@@ -1,5 +1,6 @@
 /* @flow */
 import test from 'ava'
+import * as path from 'path'
 import GitHub from 'github-api'
 import { removeDirectory } from 'create-npm/src/io'
 import { createGitHubRepository } from 'create-npm/src/actions'
@@ -11,9 +12,11 @@ test.afterEach.always(async t => {
   await removeDirectory('test-repo')
 })
 
-test('creates a GitHub repository with the given name', async t => {
+test('creates a GitHub repository at the given path', async t => {
   process.env.GITHUB_TOKEN = process.env.GITHUB_TEST_TOKEN
-  await createGitHubRepository('test-repo')
+  const localPath = path.resolve('test-repo')
+
+  t.is(await createGitHubRepository(localPath), 'test-create-npm/test-repo')
 
   const repositories = await gitHub.getUser().listRepos()
   t.is(repositories.data[0].name, 'test-repo')
