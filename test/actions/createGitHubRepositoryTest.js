@@ -14,9 +14,9 @@ test.afterEach.always(async t => {
 
 test('creates a GitHub repository at the given path', async t => {
   process.env.GITHUB_TOKEN = process.env.GITHUB_TEST_TOKEN
-  const localPath = path.resolve('test-repo')
 
-  t.is(await createGitHubRepository(localPath), 'test-create-npm/test-repo')
+  const localPath = path.resolve('test-repo')
+  await createGitHubRepository(localPath)
 
   const repositories = await gitHub.getUser().listRepos()
   t.is(repositories.data[0].name, 'test-repo')
