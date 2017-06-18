@@ -20,9 +20,15 @@ export async function exec (
     child.stderr.on('data', data => {
       console.log(data.toString())
     })
+    return new Promise(resolve => {
+      child.on('close', code => {
+        resolve(`finished with code ${code}`)
+      })
+    })
+  } else {
+    const { stdout } = await childProcess.exec(command, { cwd, env })
+    return stdout.trim()
   }
-  const { stdout } = await childProcess.exec(command, { cwd, env })
-  return stdout.trim()
 }
 
 export async function readFile (filePath: string): Promise<string> {
