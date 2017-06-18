@@ -13,7 +13,13 @@ export async function exec (
   } = {}
 ): Promise<string> {
   if (command.startsWith('hub clone')) {
-    console.log(env.GITHUB_TOKEN)
+    const child = childProcess.spawn('hub', 'clone', 'test-create-npm/existing-repo', { cwd, env })
+    child.stdout.on('data', data => {
+      console.log(data)
+    })
+    child.stderr.on('data', data => {
+      console.log(data)
+    })
   }
   const { stdout } = await childProcess.exec(command, { cwd, env })
   return stdout.trim()
