@@ -35,7 +35,8 @@
     "flow-bin": "^0.47.0",
     "github-api": "^3.0.0",
     "prettier": "^1.4.4",
-    "standard-esnext": "^2.0.2"
+    "standard-esnext": "^2.0.2",
+    "travis-ci": "^2.1.1"
   },
   "babel": {
     "presets": [
