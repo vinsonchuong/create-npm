@@ -14,7 +14,8 @@ test('enabling Travis CI for a given GitHub repo', async t => {
   await enableTravis('test-create-npm/existing-repo')
   const repositories = await travis.getRepos('test-create-npm')
 
-  const repository = repositories.find(({ slug }) =>
-    slug === 'test-create-npm/existing-repo')
+  const repository = repositories.find(
+    ({ slug }) => slug === 'test-create-npm/existing-repo'
+  )
   t.true(repository && repository.active)
 })

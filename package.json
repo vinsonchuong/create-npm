@@ -22,7 +22,8 @@
     "prepack": "build-esm"
   },
   "dependencies": {
-    "node-promise-es6": "^0.3.2"
+    "node-promise-es6": "^0.3.2",
+    "updeep": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
