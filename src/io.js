@@ -15,10 +15,10 @@ export async function exec (
   if (command.startsWith('hub clone')) {
     const child = childProcess.spawn('hub', ['clone', 'test-create-npm/existing-repo'], { cwd, env })
     child.stdout.on('data', data => {
-      console.log(data)
+      console.log(data.toString())
     })
     child.stderr.on('data', data => {
-      console.log(data)
+      console.log(data.toString())
     })
   }
   const { stdout } = await childProcess.exec(command, { cwd, env })
