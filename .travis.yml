@@ -13,7 +13,6 @@ before_install:
 - curl -LO https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
 - tar -xf hub-linux-amd64-2.2.9.tgz
 - export PATH="${PWD}/hub-linux-amd64-2.2.9/bin:${PATH}"
-- hub clone test-create-npm/existing-repo
 deploy:
   provider: npm
   api_key:
