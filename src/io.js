@@ -12,7 +12,7 @@ export async function exec (
     env?: { [string]: ?string }
   } = {}
 ): Promise<string> {
-  const { stdout } = await childProcess.exec(command, { cwd })
+  const { stdout } = await childProcess.exec(command, { cwd, env })
   return stdout.trim()
 }
 
