@@ -22,6 +22,8 @@ before_install:
 - rvm use --install $(bash <(curl -s https://vinsonchuong.github.io/scripts/rubyversion))
 - gem install travis
 
+- GITHUB_TOKEN="$GITHUB_TEST_TOKEN" hub clone test-create-npm/existing-repo
+
 
 deploy:
   provider: npm
