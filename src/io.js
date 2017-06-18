@@ -12,24 +12,8 @@ export async function exec (
     env?: { [string]: ?string }
   } = {}
 ): Promise<string> {
-  if (command.startsWith('hub clone')) {
-    const child = childProcess.spawn('hub', ['clone', 'test-create-npm/existing-repo'], { cwd, env })
-    child.stdout.on('data', data => {
-      console.log(data.toString())
-    })
-    child.stderr.on('data', data => {
-      console.log(data.toString())
-    })
-    return new Promise(resolve => {
-      child.on('close', code => {
-        console.log('command finished')
-        resolve(`finished with code ${code}`)
-      })
-    })
-  } else {
-    const { stdout } = await childProcess.exec(command, { cwd, env })
-    return stdout.trim()
-  }
+  const { stdout } = await childProcess.exec(command, { cwd, env })
+  return stdout.trim()
 }
 
 export async function readFile (filePath: string): Promise<string> {
