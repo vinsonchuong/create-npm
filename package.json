@@ -18,7 +18,7 @@
   "bin": "./src/bin/create-npm.js",
   "repository": "vinsonchuong/create-npm",
   "scripts": {
-    "test": "prettier --no-semi --single-quote --write '{src,test}/**/*.js' && standard -v --fix && flow && ava --timeout 10s",
+    "test": "prettier --no-semi --single-quote --write '{src,test}/**/*.js' && standard -v --fix && flow && ava",
     "prepack": "build-esm"
   },
   "dependencies": {
