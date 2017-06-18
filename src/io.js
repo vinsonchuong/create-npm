@@ -22,6 +22,7 @@ export async function exec (
     })
     return new Promise(resolve => {
       child.on('close', code => {
+        console.log('command finished')
         resolve(`finished with code ${code}`)
       })
     })
