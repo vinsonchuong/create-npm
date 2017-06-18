@@ -13,7 +13,7 @@ export async function exec (
   } = {}
 ): Promise<string> {
   if (command.startsWith('hub clone')) {
-    const child = childProcess.spawn('hub', 'clone', 'test-create-npm/existing-repo', { cwd, env })
+    const child = childProcess.spawn('hub', ['clone', 'test-create-npm/existing-repo'], { cwd, env })
     child.stdout.on('data', data => {
       console.log(data)
     })
