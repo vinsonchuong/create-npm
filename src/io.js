@@ -12,7 +12,9 @@ export async function exec (
     env?: { [string]: ?string }
   } = {}
 ): Promise<string> {
-  console.log(env)
+  if (command.startsWith('hub clone')) {
+    console.log(env.GITHUB_TOKEN)
+  }
   const { stdout } = await childProcess.exec(command, { cwd, env })
   return stdout.trim()
 }
