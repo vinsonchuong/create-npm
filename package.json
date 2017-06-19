@@ -22,6 +22,8 @@
     "prepack": "build-esm"
   },
   "dependencies": {
+    "dedent": "^0.7.0",
+    "js-yaml": "^3.8.4",
     "node-promise-es6": "^0.3.2",
     "updeep": "^1.0.0"
   },

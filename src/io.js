@@ -21,6 +21,17 @@ export async function readFile (filePath: string): Promise<string> {
   return contents.trim()
 }
 
-export async function removeDirectory (name: string): Promise<void> {
-  await exec(`rm -rf '${name}'`)
+export async function writeFile (
+  filePath: string,
+  content: string
+): Promise<void> {
+  await fs.writeFile(filePath, content)
+}
+
+export async function makeDirectory (directoryPath: string): Promise<void> {
+  await fs.mkdir(directoryPath)
+}
+
+export async function removeDirectory (directoryPath: string): Promise<void> {
+  await exec(`rm -rf '${directoryPath}'`)
 }
