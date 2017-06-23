@@ -7,7 +7,8 @@ import {
   getAuthorEmail,
   getGitHubRepositoryName,
   enableTravis,
-  writeTemplates
+  writeTemplates,
+  installPackages
 } from 'create-npm/src/actions'
 import templates from 'create-npm/src/templates'
 
@@ -28,5 +29,22 @@ async function run () {
     authorName,
     authorEmail
   })
+
+  installPackages(
+    localPath,
+    [],
+    [
+      'ava',
+      'babel-plugin-package-name-import',
+      'babel-preset-env',
+      'babel-preset-flow',
+      'babel-preset-stage-0',
+      'babel-register',
+      'build-esm',
+      'flow-bin',
+      'prettier',
+      'standard-esnext'
+    ]
+  )
 }
 run()
