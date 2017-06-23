@@ -1,4 +1,5 @@
 /* @flow */
+export { default as commitChanges } from './commitChanges'
 export { default as createGitHubRepository } from './createGitHubRepository'
 export { default as enableTravis } from './enableTravis'
 export { default as getAuthor } from './getAuthor'

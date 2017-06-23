@@ -8,7 +8,8 @@ import {
   getGitHubRepositoryName,
   enableTravis,
   writeTemplates,
-  installPackages
+  installPackages,
+  commitChanges
 } from 'create-npm/src/actions'
 import templates from 'create-npm/src/templates'
 
@@ -46,5 +47,7 @@ async function run () {
       'standard-esnext'
     ]
   )
+
+  commitChanges(localPath, 'Create npm package')
 }
 run()
