@@ -13,7 +13,6 @@ env:
 before_install:
 - openssl aes-256-cbc -K $encrypted_4bfa00ed87db_key -iv $encrypted_4bfa00ed87db_iv -in keys.tgz.enc -out keys.tgz -d
 - tar -xf keys.tgz
-- ls -lha keys
 
 - curl -LO https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
 - tar -xf hub-linux-amd64-2.2.9.tgz
