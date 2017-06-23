@@ -12,6 +12,7 @@ export default function (): Template {
     cache: 'yarn',
     deploy: {
       provider: 'npm',
+      skip_cleanup: true,
       on: 'tags'
     }
   }
