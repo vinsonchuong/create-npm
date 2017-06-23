@@ -2,10 +2,12 @@
 import test from 'ava'
 import * as path from 'path'
 import useGitHub from 'create-npm/test/helpers/useGitHub'
+import useGitSshKey from 'create-npm/test/helpers/useGitSshKey'
 import { removeDirectory } from 'create-npm/src/io'
 import { createGitHubRepository } from 'create-npm/src/actions'
 
 const gitHub = useGitHub()
+useGitSshKey()
 
 test.afterEach.always(async t => {
   await gitHub.deleteRepository('test-create-npm/test-repo')
