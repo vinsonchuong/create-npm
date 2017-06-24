@@ -6,8 +6,13 @@ export default async function (
   runtimeDependencies: Array<string>,
   developmentDependencies: Array<string>
 ): Promise<void> {
-  await exec(`yarn add ${runtimeDependencies.join(' ')}`, { cwd: localPath })
-  await exec(`yarn add --dev ${developmentDependencies.join(' ')}`, {
-    cwd: localPath
-  })
+  if (runtimeDependencies.length > 0) {
+    await exec(`yarn add ${runtimeDependencies.join(' ')}`, { cwd: localPath })
+  }
+
+  if (developmentDependencies.length > 0) {
+    await exec(`yarn add --dev ${developmentDependencies.join(' ')}`, {
+      cwd: localPath
+    })
+  }
 }
