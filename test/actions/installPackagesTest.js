@@ -7,10 +7,22 @@ import { installPackages } from 'create-npm/src/actions'
 
 const localPath = useDirectory('test-install-packages')
 
-test('installing npm packages', async t => {
+test.serial('installing npm packages', async t => {
   await installPackages(localPath, ['react'], ['ava'])
   const packageJson = await readPackageJson(localPath)
   t.truthy(packageJson.dependencies.react)
+  t.truthy(packageJson.devDependencies.ava)
+})
+
+test.serial('installing only runtime dependencies', async t => {
+  await installPackages(localPath, ['react'], [])
+  const packageJson = await readPackageJson(localPath)
+  t.truthy(packageJson.dependencies.react)
+})
+
+test.serial('installing only development dependencies', async t => {
+  await installPackages(localPath, [], ['ava'])
+  const packageJson = await readPackageJson(localPath)
   t.truthy(packageJson.devDependencies.ava)
 })
 
