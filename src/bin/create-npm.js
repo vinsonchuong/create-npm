@@ -31,7 +31,7 @@ async function run () {
     authorEmail
   })
 
-  installPackages(
+  await installPackages(
     localPath,
     [],
     [
@@ -48,6 +48,6 @@ async function run () {
     ]
   )
 
-  commitChanges(localPath, 'Create npm package')
+  await commitChanges(localPath, 'Create npm package')
 }
 run()
