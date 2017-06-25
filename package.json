@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "dedent": "^0.7.0",
+    "fs-extra": "^3.0.1",
     "js-yaml": "^3.8.4",
     "node-promise-es6": "^0.3.2",
     "updeep": "^1.0.0"
