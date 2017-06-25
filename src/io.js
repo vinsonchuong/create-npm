@@ -1,6 +1,7 @@
 /* @flow */
 import * as path from 'path'
-import { childProcess, fs } from 'node-promise-es6'
+import { childProcess } from 'node-promise-es6'
+import * as fs from 'fs-extra'
 
 export async function exec (
   command: string,
@@ -25,11 +26,11 @@ export async function writeFile (
   filePath: string,
   content: string
 ): Promise<void> {
-  await fs.writeFile(filePath, content)
+  await fs.outputFile(filePath, content)
 }
 
 export async function makeDirectory (directoryPath: string): Promise<void> {
-  await fs.mkdir(directoryPath)
+  await fs.ensureDir(directoryPath)
 }
 
 export async function removeDirectory (directoryPath: string): Promise<void> {
