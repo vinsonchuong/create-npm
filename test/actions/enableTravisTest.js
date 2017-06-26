@@ -40,11 +40,3 @@ test.serial('enabling Travis CI for a new GitHub repo', async t => {
     await removeDirectory('new-travis-repo')
   }
 })
-
-test.serial('enabling a repo while Travis is syncing', async t => {
-  const sync = exec('travis sync')
-  await enableTravis('test-create-npm/existing-repo')
-  await sync
-  await exec('travis disable --repo test-create-npm/existing-repo')
-  t.pass()
-})
