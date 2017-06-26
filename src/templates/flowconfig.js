@@ -6,7 +6,7 @@ type TemplateData = {
   packageName: string
 }
 
-export default function ({ packageName }: TemplateData): Template {
+export default function({ packageName }: TemplateData): Template {
   const path = '.flowconfig'
   let content = file`
     [ignore]

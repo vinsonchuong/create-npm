@@ -8,7 +8,7 @@ type TemplateData = {
   repositoryName: string
 }
 
-export default function ({
+export default function({
   authorName,
   authorEmail,
   packageName,
@@ -29,8 +29,7 @@ export default function ({
     bin: `./src/bin/${packageName}.js`,
     repository: repositoryName,
     scripts: {
-      test:
-        "prettier --no-semi --single-quote --write '{src,test}/**/*.js' && standard -v --fix && flow && ava",
+      test: 'standard -v --fix && flow && ava',
       prepack: 'build-esm'
     },
     dependencies: {},

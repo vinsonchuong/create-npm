@@ -2,7 +2,7 @@
 import test from 'ava'
 import * as path from 'path'
 
-export default function () {
+export default function() {
   const binFixturePath = path.resolve('test/fixtures/bin')
   const currentPath = process.env.PATH || ''
 

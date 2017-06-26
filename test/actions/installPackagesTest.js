@@ -30,6 +30,6 @@ type PackageJson = {
   dependencies: { [string]: string },
   devDependencies: { [string]: string }
 }
-async function readPackageJson (localPath: string): Promise<PackageJson> {
+async function readPackageJson(localPath: string): Promise<PackageJson> {
   return JSON.parse(await readFile(path.join(localPath, 'package.json')))
 }

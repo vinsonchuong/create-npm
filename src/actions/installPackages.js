@@ -1,7 +1,7 @@
 /* @flow */
 import { exec } from 'create-npm/src/io'
 
-export default async function (
+export default async function(
   localPath: string,
   runtimeDependencies: Array<string>,
   developmentDependencies: Array<string>

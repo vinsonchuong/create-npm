@@ -18,7 +18,7 @@
   "bin": "./src/bin/create-npm.js",
   "repository": "vinsonchuong/create-npm",
   "scripts": {
-    "test": "prettier --no-semi --single-quote --write '{src,test}/**/*.js' && standard -v --fix && flow && ava",
+    "test": "standard -v --fix && flow && ava",
     "prepack": "build-esm"
   },
   "dependencies": {
@@ -38,8 +38,7 @@
     "build-esm": "^3.0.1",
     "flow-bin": "^0.48.0",
     "github-api": "^3.0.0",
-    "prettier": "^1.4.4",
-    "standard-esnext": "^2.0.2",
+    "standard-esnext": "^3.0.0",
     "travis-ci": "^2.1.1"
   },
   "babel": {

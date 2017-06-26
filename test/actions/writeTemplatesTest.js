@@ -15,7 +15,7 @@ test.afterEach.always(async t => {
   await removeDirectory(localPath)
 })
 
-function readPackageFile (name: string): Promise<string> {
+function readPackageFile(name: string): Promise<string> {
   return readFile(path.resolve(localPath, name))
 }
 
