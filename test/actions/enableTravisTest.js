@@ -14,17 +14,14 @@ useGitSshKey()
 const newRepoPath = path.resolve('new-travis-repo')
 
 test.serial('enabling Travis CI for a given GitHub repo', async t => {
-  try {
-    await enableTravis('test-create-npm/existing-repo')
-    const repositories = await travis.getRepos('test-create-npm')
-    await exec('travis disable --repo test-create-npm/existing-repo')
+  await enableTravis('test-create-npm/existing-repo')
+  const repositories = await travis.getRepos('test-create-npm')
+  await exec('travis disable --repo test-create-npm/existing-repo')
 
-    const repository = repositories.find(
-      ({ slug }) => slug === 'test-create-npm/existing-repo'
-    )
-    t.true(repository && repository.active)
-  } finally {
-  }
+  const repository = repositories.find(
+    ({ slug }) => slug === 'test-create-npm/existing-repo'
+  )
+  t.true(repository && repository.active)
 })
 
 test.serial('enabling Travis CI for a new GitHub repo', async t => {
@@ -42,4 +39,12 @@ test.serial('enabling Travis CI for a new GitHub repo', async t => {
     await gitHub.deleteRepository('test-create-npm/new-travis-repo')
     await removeDirectory('new-travis-repo')
   }
+})
+
+test.serial('enabling a repo while Travis is syncing', async t => {
+  const sync = exec('travis sync')
+  await enableTravis('test-create-npm/existing-repo')
+  await sync
+  await exec('travis disable --repo test-create-npm/existing-repo')
+  t.pass()
 })
