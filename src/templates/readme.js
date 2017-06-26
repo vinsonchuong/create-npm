@@ -7,7 +7,7 @@ type TemplateData = {
   repositoryName: string
 }
 
-export default function ({
+export default function({
   packageName,
   repositoryName
 }: TemplateData): Template {

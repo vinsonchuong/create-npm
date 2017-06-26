@@ -2,7 +2,7 @@
 import * as path from 'path'
 import { writeFile } from 'create-npm/src/io'
 
-export default async function (
+export default async function(
   localPath: string,
   templates: Array<({ [string]: string }) => { path: string, content: string }>,
   data: { [string]: string }

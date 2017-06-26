@@ -6,7 +6,7 @@ type TemplateData = {
   authorName: string
 }
 
-export default function ({ authorName }: TemplateData): Template {
+export default function({ authorName }: TemplateData): Template {
   const path = 'LICENSE'
 
   const currentYear = new Date().getFullYear()

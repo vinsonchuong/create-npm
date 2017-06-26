@@ -7,7 +7,7 @@ type TemplateData = {
   packageName: string
 }
 
-export default function ({ packageName }: TemplateData): Template {
+export default function({ packageName }: TemplateData): Template {
   const path = `src/bin/${packageName}.js`
   const content = file`
     #!/usr/bin/env node
