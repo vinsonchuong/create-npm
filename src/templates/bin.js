@@ -1,6 +1,7 @@
 /* @flow */
+/* eslint-disable no-template-curly-in-string */
 import type { Template } from './'
-import dedent from 'dedent'
+import { file } from './'
 
 type TemplateData = {
   packageName: string
@@ -8,12 +9,12 @@ type TemplateData = {
 
 export default function ({ packageName }: TemplateData): Template {
   const path = `src/bin/${packageName}.js`
-  const content = dedent`
+  const content = file`
     #!/usr/bin/env node
     /* @flow */
     import greeting from '${packageName}/src/greeting'
 
-    process.stdout.write(\`\${greeting}\n\`)
+    console.log(${'${greeting}'})
   `
   return { path, content }
 }
