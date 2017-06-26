@@ -14,7 +14,7 @@ export default function ({ packageName }: TemplateData): Template {
     /* @flow */
     import greeting from '${packageName}/src/greeting'
 
-    console.log(${'${greeting}'})
+    console.log(${'`${greeting}`'})
   `
   return { path, content }
 }
