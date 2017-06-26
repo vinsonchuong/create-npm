@@ -1,6 +1,6 @@
 /* @flow */
 import type { Template } from './'
-import dedent from 'dedent'
+import { file } from './'
 
 type TemplateData = {
   packageName: string,
@@ -12,7 +12,7 @@ export default function ({
   repositoryName
 }: TemplateData): Template {
   const path = 'README.md'
-  const content = dedent`
+  const content = file`
     # ${packageName}
     [![Build Status](https://travis-ci.org/${repositoryName}.svg?branch=master)](https://travis-ci.org/${repositoryName})
 

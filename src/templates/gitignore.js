@@ -1,10 +1,10 @@
 /* @flow */
 import type { Template } from './'
-import dedent from 'dedent'
+import { file } from './'
 
 export default function (): Template {
   const path = '.gitignore'
-  const content = dedent`
+  const content = file`
     /node_modules
   `
   return { path, content }
