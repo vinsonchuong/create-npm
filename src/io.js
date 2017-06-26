@@ -36,3 +36,9 @@ export async function makeDirectory (directoryPath: string): Promise<void> {
 export async function removeDirectory (directoryPath: string): Promise<void> {
   await exec(`rm -rf '${directoryPath}'`)
 }
+
+export function sleep (ms: number): Promise<void> {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms)
+  })
+}
