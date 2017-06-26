@@ -50,21 +50,27 @@ test.serial('writing the actual templates', async t => {
     authorName
   })
 
+  const bin = await readPackageFile('src/bin/my-pkg.js')
   const flowconfig = await readPackageFile('.flowconfig')
   const gitignore = await readPackageFile('.gitignore')
   const license = await readPackageFile('LICENSE')
+  const main = await readPackageFile('src/greeting.js')
   const packagejson = await readPackageFile('package.json')
   const readme = await readPackageFile('README.md')
+  const test = await readPackageFile('test/greetingTest.js')
   const travisyml = await readPackageFile('.travis.yml')
 
+  t.true(bin.includes('#!/usr/bin/env node'))
   t.true(
     flowconfig.includes(
       "module.name_mapper='^my-pkg\\/\\(.*\\)$' -> '<PROJECT_ROOT>/\\1'"
     )
   )
   t.true(gitignore.includes('/node_modules'))
+  t.true(main.includes('Hello World!'))
   t.true(packagejson.includes('  "name": "my-pkg",'))
   t.true(license.startsWith('The MIT License'))
   t.true(readme.startsWith('# my-pkg'))
+  t.true(test.includes("import test from 'ava'"))
   t.true(travisyml.includes('dist: trusty'))
 })
