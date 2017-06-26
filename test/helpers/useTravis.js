@@ -8,14 +8,14 @@ type Repository = {
   active: boolean
 }
 
-export default function () {
+export default function() {
   test.beforeEach(t => {
     process.env.TRAVIS_TOKEN = process.env.TRAVIS_TEST_TOKEN
   })
 
   const travis = new Travis({ version: '2.0.0' })
   return {
-    async getRepos (username: string): Promise<Array<Repository>> {
+    async getRepos(username: string): Promise<Array<Repository>> {
       const { repos } = await promisify(travis.repos(username).get)()
       return repos
     }

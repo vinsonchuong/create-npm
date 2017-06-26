@@ -13,7 +13,7 @@ import {
 } from 'create-npm/src/actions'
 import templates from 'create-npm/src/templates'
 
-async function run () {
+async function run() {
   const packageName = process.argv[2]
   const localPath = path.resolve(packageName)
 
@@ -46,7 +46,6 @@ async function run () {
       'babel-register',
       'build-esm',
       'flow-bin',
-      'prettier',
       'standard-esnext'
     ]
   )

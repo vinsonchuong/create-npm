@@ -16,7 +16,7 @@ export type Template = {
   content: string
 }
 
-export function file (
+export function file(
   strings: Array<string>,
   ...interpolations: Array<string>
 ): string {
