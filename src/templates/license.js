@@ -1,6 +1,6 @@
 /* @flow */
 import type { Template } from './'
-import dedent from 'dedent'
+import { file } from './'
 
 type TemplateData = {
   authorName: string
@@ -10,7 +10,7 @@ export default function ({ authorName }: TemplateData): Template {
   const path = 'LICENSE'
 
   const currentYear = new Date().getFullYear()
-  const content = dedent`
+  const content = file`
     The MIT License (MIT)
 
     Copyright (c) ${currentYear} ${authorName}
