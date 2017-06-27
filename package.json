@@ -30,10 +30,7 @@
   },
   "devDependencies": {
     "ava": "^0.19.1",
-    "babel-plugin-package-name-import": "^1.0.0",
-    "babel-preset-env": "^1.5.2",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-diff": "^0.0.3",
     "babel-register": "^6.24.1",
     "build-esm": "^3.0.1",
     "flow-bin": "^0.48.0",
@@ -43,19 +40,7 @@
   },
   "babel": {
     "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "stage-0",
-      "flow"
-    ],
-    "plugins": [
-      "package-name-import"
+      "diff"
     ]
   },
   "ava": {
