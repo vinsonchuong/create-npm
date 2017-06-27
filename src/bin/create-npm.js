@@ -39,10 +39,7 @@ async function run() {
     [],
     [
       'ava',
-      'babel-plugin-package-name-import',
-      'babel-preset-env',
-      'babel-preset-flow',
-      'babel-preset-stage-0',
+      'babel-preset-diff',
       'babel-register',
       'build-esm',
       'flow-bin',

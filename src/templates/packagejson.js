@@ -35,8 +35,7 @@ export default function({
     dependencies: {},
     devDependencies: {},
     babel: {
-      presets: [['env', { targets: { node: 'current' } }], 'stage-0', 'flow'],
-      plugins: ['package-name-import']
+      presets: ['diff']
     },
     ava: {
       concurrency: 8,
