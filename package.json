@@ -1,6 +1,6 @@
 {
   "name": "create-npm",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Bootstrap npm packages using Yarn",
   "keywords": [
     "yarn",
