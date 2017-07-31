@@ -11,7 +11,7 @@ export default function({ packageName }: TemplateData): Template {
   const content = file`
     /* @flow */
     import test from 'ava'
-    import greeting from '${packageName}/src/greeting'
+    import greeting from '${packageName}'
 
     test('is the correct string', t => {
       t.is(greeting, 'Hello World!')
