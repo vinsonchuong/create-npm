@@ -12,7 +12,7 @@ export default function({ packageName }: TemplateData): Template {
   const content = file`
     #!/usr/bin/env node
     /* @flow */
-    import greeting from '${packageName}/src/greeting'
+    import greeting from '${packageName}'
 
     console.log(${'`${greeting}`'})
   `
