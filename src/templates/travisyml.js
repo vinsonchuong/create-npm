@@ -13,7 +13,9 @@ export default function(): Template {
     deploy: {
       provider: 'npm',
       skip_cleanup: true,
-      on: 'tags'
+      on: {
+        tags: true
+      }
     }
   }
   const content = safeDump(json)

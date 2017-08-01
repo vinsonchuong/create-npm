@@ -72,5 +72,5 @@ test.serial('writing the actual templates', async t => {
   t.true(license.startsWith('The MIT License'))
   t.true(readme.startsWith('# my-pkg'))
   t.true(test.includes("import test from 'ava'"))
-  t.true(travisyml.includes('dist: trusty'))
+  t.true(travisyml.includes('tags: true'))
 })
