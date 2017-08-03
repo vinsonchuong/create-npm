@@ -2,7 +2,17 @@
 import type { Template } from './'
 import { safeDump } from 'js-yaml'
 
-export default function(): Template {
+type TemplateData = {
+  authorName: string,
+  encryptedAuthorEmail: string,
+  encryptedTravisApiKey: string
+}
+
+export default function({
+  authorName,
+  encryptedAuthorEmail,
+  encryptedTravisApiKey
+}: TemplateData): Template {
   const path = '.travis.yml'
   const json = {
     dist: 'trusty',
@@ -15,6 +25,12 @@ export default function(): Template {
       skip_cleanup: true,
       on: {
         tags: true
+      },
+      email: {
+        secure: encryptedAuthorEmail
+      },
+      api_key: {
+        secure: encryptedTravisApiKey
       }
     }
   }
