@@ -2,14 +2,16 @@
 /* @flow */
 import * as path from 'path'
 import {
+  commitChanges,
   createGitHubRepository,
-  getAuthorName,
-  getAuthorEmail,
-  getGitHubRepositoryName,
   enableTravis,
-  writeTemplates,
+  encryptForTravis,
+  getAuthorEmail,
+  getAuthorName,
+  getGitHubRepositoryName,
+  getTravisApiKey,
   installPackages,
-  commitChanges
+  writeTemplates
 } from 'create-npm/src/actions'
 import templates from 'create-npm/src/templates'
 
@@ -26,11 +28,22 @@ async function run() {
 
   const authorName = await getAuthorName()
   const authorEmail = await getAuthorEmail()
+  const travisApiKey = await getTravisApiKey()
+  const encryptedAuthorEmail = await encryptForTravis(
+    repositoryName,
+    authorEmail
+  )
+  const encryptedTravisApiKey = await encryptForTravis(
+    repositoryName,
+    travisApiKey
+  )
   await writeTemplates(localPath, templates, {
     packageName,
     repositoryName,
     authorName,
-    authorEmail
+    authorEmail,
+    encryptedAuthorEmail,
+    encryptedTravisApiKey
   })
   console.log('Wrote boilerplate files')
 

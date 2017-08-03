@@ -44,10 +44,16 @@ test.serial('writing the actual templates', async t => {
   const packageName = 'my-pkg'
   const repositoryName = 'foobar/my-pkg'
   const authorName = 'Foo Bar'
+  const authorEmail = 'foo@example.com'
+  const encryptedAuthorEmail = '!!!foo@example.com'
+  const encryptedTravisApiKey = '!!!1234'
   await writeTemplates(localPath, templates, {
     packageName,
     repositoryName,
-    authorName
+    authorName,
+    authorEmail,
+    encryptedAuthorEmail,
+    encryptedTravisApiKey
   })
 
   const bin = await readPackageFile('src/bin/my-pkg.js')
@@ -73,4 +79,6 @@ test.serial('writing the actual templates', async t => {
   t.true(readme.startsWith('# my-pkg'))
   t.true(test.includes("import test from 'ava'"))
   t.true(travisyml.includes('tags: true'))
+  t.true(travisyml.includes('!!!foo@example.com'))
+  t.true(travisyml.includes('!!!1234'))
 })
