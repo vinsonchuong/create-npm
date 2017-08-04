@@ -23,19 +23,19 @@
   },
   "dependencies": {
     "dedent": "^0.7.0",
-    "fs-extra": "^3.0.1",
-    "js-yaml": "^3.8.4",
+    "fs-extra": "^4.0.1",
+    "js-yaml": "^3.9.1",
     "node-promise-es6": "^0.3.2",
     "updeep": "^1.0.0"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
-    "babel-preset-diff": "^0.0.3",
+    "ava": "^0.21.0",
+    "babel-preset-diff": "^0.0.4",
     "babel-register": "^6.24.1",
-    "build-esm": "^3.0.1",
-    "flow-bin": "^0.48.0",
+    "build-esm": "^3.1.0",
+    "flow-bin": "^0.52.0",
     "github-api": "^3.0.0",
-    "standard-esnext": "^3.0.0",
+    "standard-esnext": "^3.0.1",
     "travis-ci": "^2.1.1"
   },
   "babel": {
