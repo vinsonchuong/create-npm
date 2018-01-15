@@ -1,4 +1,4 @@
-/* eslint-disable import/unambiguous */
+/* eslint-disable */
 module.exports = function(outputMap) {
   const args = process.argv.slice(2).join(' ')
   if (args in outputMap) {

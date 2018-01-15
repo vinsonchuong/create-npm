@@ -63,7 +63,7 @@ test.serial('writing the actual templates', async t => {
   const main = await readPackageFile('src/index.js')
   const packagejson = await readPackageFile('package.json')
   const readme = await readPackageFile('README.md')
-  const test = await readPackageFile('test/greetingTest.js')
+  const testCase = await readPackageFile('test/greetingTest.js')
   const travisyml = await readPackageFile('.travis.yml')
 
   t.true(bin.includes('#!/usr/bin/env node'))
@@ -77,7 +77,7 @@ test.serial('writing the actual templates', async t => {
   t.true(packagejson.includes('  "name": "my-pkg",'))
   t.true(license.startsWith('The MIT License'))
   t.true(readme.startsWith('# my-pkg'))
-  t.true(test.includes("import test from 'ava'"))
+  t.true(testCase.includes("import test from 'ava'"))
   t.true(travisyml.includes('tags: true'))
   t.true(travisyml.includes('!!!foo@example.com'))
   t.true(travisyml.includes('!!!1234'))
