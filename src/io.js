@@ -17,6 +17,8 @@ export async function exec(
   return stdout.trim()
 }
 
+export { pathExists } from 'fs-extra'
+
 export async function readFile(filePath: string): Promise<string> {
   const contents = await fs.readFile(filePath, 'utf8')
   return contents.trim()
