@@ -31,6 +31,8 @@ function parseInput(
 }
 
 async function run() {
+  console.log('\nCreating npm project\n')
+
   const { orgName, repoName, localPath } = parseInput(process.argv[2])
 
   await createGitHubRepository(orgName, repoName, localPath)
