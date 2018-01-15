@@ -3,10 +3,10 @@ import type { Template } from './'
 import { file } from './'
 
 type TemplateData = {
-  packageName: string
+  repoName: string
 }
 
-export default function({ packageName }: TemplateData): Template {
+export default function({ repoName }: TemplateData): Template {
   const path = '.flowconfig'
   let content = file`
     [ignore]
@@ -17,7 +17,7 @@ export default function({ packageName }: TemplateData): Template {
 
     [options]
   `
-  content += `module.name_mapper='^${packageName}$' -> '<PROJECT_ROOT>'\n`
-  content += `module.name_mapper='^${packageName}\\/\\(.*\\)$' -> '<PROJECT_ROOT>/\\1'\n`
+  content += `module.name_mapper='^${repoName}$' -> '<PROJECT_ROOT>'\n`
+  content += `module.name_mapper='^${repoName}\\/\\(.*\\)$' -> '<PROJECT_ROOT>/\\1'\n`
   return { path, content }
 }
