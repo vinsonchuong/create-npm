@@ -31,7 +31,7 @@ function parseInput(
 }
 
 async function run() {
-  console.log('\nCreating npm project\n')
+  console.log('\nCreating npm project')
 
   const { orgName, repoName, localPath } = parseInput(process.argv[2])
 
