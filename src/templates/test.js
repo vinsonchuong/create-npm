@@ -3,15 +3,15 @@ import type { Template } from './'
 import { file } from './'
 
 type TemplateData = {
-  packageName: string
+  repoName: string
 }
 
-export default function({ packageName }: TemplateData): Template {
+export default function({ repoName }: TemplateData): Template {
   const path = `test/greetingTest.js`
   const content = file`
     /* @flow */
     import test from 'ava'
-    import greeting from '${packageName}'
+    import greeting from '${repoName}'
 
     test('is the correct string', t => {
       t.is(greeting, 'Hello World!')

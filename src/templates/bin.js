@@ -4,15 +4,15 @@ import type { Template } from './'
 import { file } from './'
 
 type TemplateData = {
-  packageName: string
+  repoName: string
 }
 
-export default function({ packageName }: TemplateData): Template {
-  const path = `src/bin/${packageName}.js`
+export default function({ repoName }: TemplateData): Template {
+  const path = `src/bin/${repoName}.js`
   const content = file`
     #!/usr/bin/env node
     /* @flow */
-    import greeting from '${packageName}'
+    import greeting from '${repoName}'
 
     console.log(${'`${greeting}`'})
   `
