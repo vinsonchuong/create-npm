@@ -2,16 +2,15 @@
 import { exec, sleep } from 'create-npm/src/io'
 
 export default async function(slug: string): Promise<void> {
-  await sync()
+  await sync(slug)
   await exec(`travis enable --no-interactive --repo '${slug}'`)
 }
 
-async function sync(): Promise<void> {
-  const status = await exec('travis sync --check --no-interactive')
-  if (status === 'not syncing') {
-    await exec('travis sync')
-  } else {
+async function sync(slug: string): Promise<void> {
+  await exec('travis sync')
+  const syncedRepos = await exec('travis repos --no-interactive')
+  if (!syncedRepos.includes(slug)) {
     await sleep(1000)
-    return sync()
+    return sync(slug)
   }
 }
