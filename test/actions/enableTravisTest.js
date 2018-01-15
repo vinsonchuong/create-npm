@@ -28,7 +28,11 @@ test.serial('enabling Travis CI for a new GitHub repo', async t => {
   try {
     const newRepoSlug = 'test-create-npm/new-travis-repo'
 
-    await createGitHubRepository(newRepoPath)
+    await createGitHubRepository(
+      'test-create-npm',
+      'new-travis-repo',
+      newRepoPath
+    )
     await enableTravis(newRepoSlug)
     const repositories = await travis.getRepos('test-create-npm')
     await exec('travis disable --repo test-create-npm/new-travis-repo')

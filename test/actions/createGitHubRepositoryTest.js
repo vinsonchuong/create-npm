@@ -14,10 +14,24 @@ test.afterEach.always(async t => {
   await removeDirectory('test-repo')
 })
 
-test('creates a GitHub repository at the given path', async t => {
-  const localPath = path.resolve('test-repo')
-  await createGitHubRepository(localPath)
+test.serial(
+  'creates a GitHub repository for the current user at the given path',
+  async t => {
+    const localPath = path.resolve('test-repo')
+    await createGitHubRepository(null, 'test-repo', localPath)
 
-  const repositories = await gitHub.listRepositories('test-create-npm')
-  t.true(repositories.includes('test-repo'))
-})
+    const repositories = await gitHub.listRepositories('test-create-npm')
+    t.true(repositories.includes('test-repo'))
+  }
+)
+
+test.serial(
+  'creates a GitHub repository for the given org and user at the given path',
+  async t => {
+    const localPath = path.resolve('test-repo')
+    await createGitHubRepository('test-create-npm', 'test-repo', localPath)
+
+    const repositories = await gitHub.listRepositories('test-create-npm')
+    t.true(repositories.includes('test-repo'))
+  }
+)

@@ -11,7 +11,11 @@ useGitSshKey()
 const localPath = path.resolve('test-commit-changes')
 
 test.beforeEach(async t => {
-  await createGitHubRepository(localPath)
+  await createGitHubRepository(
+    'test-create-npm',
+    'test-commit-changes',
+    localPath
+  )
 })
 
 test.afterEach.always(async t => {

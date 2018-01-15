@@ -4,17 +4,17 @@ import { file } from './'
 
 type TemplateData = {
   packageName: string,
-  repositoryName: string
+  repositorySlug: string
 }
 
 export default function({
   packageName,
-  repositoryName
+  repositorySlug
 }: TemplateData): Template {
   const path = 'README.md'
   const content = file`
     # ${packageName}
-    [![Build Status](https://travis-ci.org/${repositoryName}.svg?branch=master)](https://travis-ci.org/${repositoryName})
+    [![Build Status](https://travis-ci.org/${repositorySlug}.svg?branch=master)](https://travis-ci.org/${repositorySlug})
 
     An awesome package
 
