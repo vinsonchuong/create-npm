@@ -15,8 +15,7 @@ export default function({
 }: TemplateData): Template {
   const path = '.travis.yml'
   const json = {
-    dist: 'trusty',
-    sudo: 'false',
+    group: 'travis_latest',
     language: 'node_js',
     node_js: 'node',
     cache: 'yarn',
