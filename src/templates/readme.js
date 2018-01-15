@@ -3,27 +3,24 @@ import type { Template } from './'
 import { file } from './'
 
 type TemplateData = {
-  packageName: string,
+  repoName: string,
   repositorySlug: string
 }
 
-export default function({
-  packageName,
-  repositorySlug
-}: TemplateData): Template {
+export default function({ repoName, repositorySlug }: TemplateData): Template {
   const path = 'README.md'
   const content = file`
-    # ${packageName}
+    # ${repoName}
     [![Build Status](https://travis-ci.org/${repositorySlug}.svg?branch=master)](https://travis-ci.org/${repositorySlug})
 
     An awesome package
 
     ## Usage
-    Install [${packageName}](https://yarnpkg.com/en/package/${packageName})
+    Install [${repoName}](https://yarnpkg.com/en/package/${repoName})
     by running
 
     \`\`\`sh
-    yarn add ${packageName}
+    yarn add ${repoName}
     \`\`\`
   `
   return { path, content }

@@ -4,19 +4,19 @@ import type { Template } from './'
 type TemplateData = {
   authorName: string,
   authorEmail: string,
-  packageName: string,
+  repoName: string,
   repositorySlug: string
 }
 
 export default function({
   authorName,
   authorEmail,
-  packageName,
+  repoName,
   repositorySlug
 }: TemplateData): Template {
   const path = 'package.json'
   const json = {
-    name: packageName,
+    name: repoName,
     version: '0.0.0',
     description: 'An awesome package',
     keywords: [],
@@ -26,7 +26,7 @@ export default function({
     author: `${authorName} <${authorEmail}>`,
     files: ['src'],
     main: './src/index.js',
-    bin: `./src/bin/${packageName}.js`,
+    bin: `./src/bin/${repoName}.js`,
     repository: repositorySlug,
     scripts: {
       test: 'standard -v --fix && flow && ava',

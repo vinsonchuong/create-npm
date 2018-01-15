@@ -21,9 +21,9 @@ function readPackageFile(name: string): Promise<string> {
 
 test.serial('writing a collection of templates', async t => {
   const templates = [
-    ({ packageName }) => ({
+    ({ repoName }) => ({
       path: 'README.md',
-      content: `# ${packageName}`
+      content: `# ${repoName}`
     }),
     () => ({
       path: '.gitignore',
@@ -31,7 +31,7 @@ test.serial('writing a collection of templates', async t => {
     })
   ]
   const data = {
-    packageName: 'my-pkg'
+    repoName: 'my-pkg'
   }
 
   await writeTemplates(localPath, templates, data)
@@ -41,14 +41,14 @@ test.serial('writing a collection of templates', async t => {
 })
 
 test.serial('writing the actual templates', async t => {
-  const packageName = 'my-pkg'
+  const repoName = 'my-pkg'
   const repositorySlug = 'foobar/my-pkg'
   const authorName = 'Foo Bar'
   const authorEmail = 'foo@example.com'
   const encryptedAuthorEmail = '!!!foo@example.com'
   const encryptedTravisApiKey = '!!!1234'
   await writeTemplates(localPath, templates, {
-    packageName,
+    repoName,
     repositorySlug,
     authorName,
     authorEmail,
