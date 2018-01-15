@@ -15,31 +15,45 @@ import {
 } from 'create-npm/src/actions'
 import templates from 'create-npm/src/templates'
 
+function parseInput(
+  name: string
+): { orgName: ?string, repoName: string, localPath: string } {
+  if (name.includes('/')) {
+    const [orgName, repoName] = name.split('/')
+    const localPath = path.resolve(repoName)
+    return { orgName, repoName, localPath }
+  } else {
+    const orgName = null
+    const repoName = name
+    const localPath = path.resolve(repoName)
+    return { orgName, repoName, localPath }
+  }
+}
+
 async function run() {
-  const packageName = process.argv[2]
-  const localPath = path.resolve(packageName)
+  const { orgName, repoName, localPath } = parseInput(process.argv[2])
 
-  await createGitHubRepository(localPath)
-  const repositoryName = await getGitHubRepositoryName(localPath)
-  console.log(`Created GitHub repository ${repositoryName}`)
+  await createGitHubRepository(orgName, repoName, localPath)
+  const repositorySlug = await getGitHubRepositoryName(localPath)
+  console.log(`Created GitHub repository ${repositorySlug}`)
 
-  await enableTravis(repositoryName)
-  console.log(`Enabled Travis CI for ${repositoryName}`)
+  await enableTravis(repositorySlug)
+  console.log(`Enabled Travis CI for ${repositorySlug}`)
 
   const authorName = await getAuthorName()
   const authorEmail = await getAuthorEmail()
   const travisApiKey = await getTravisApiKey()
   const encryptedAuthorEmail = await encryptForTravis(
-    repositoryName,
+    repositorySlug,
     authorEmail
   )
   const encryptedTravisApiKey = await encryptForTravis(
-    repositoryName,
+    repositorySlug,
     travisApiKey
   )
   await writeTemplates(localPath, templates, {
-    packageName,
-    repositoryName,
+    repoName,
+    repositorySlug,
     authorName,
     authorEmail,
     encryptedAuthorEmail,

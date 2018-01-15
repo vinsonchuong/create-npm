@@ -5,14 +5,14 @@ type TemplateData = {
   authorName: string,
   authorEmail: string,
   packageName: string,
-  repositoryName: string
+  repositorySlug: string
 }
 
 export default function({
   authorName,
   authorEmail,
   packageName,
-  repositoryName
+  repositorySlug
 }: TemplateData): Template {
   const path = 'package.json'
   const json = {
@@ -20,14 +20,14 @@ export default function({
     version: '0.0.0',
     description: 'An awesome package',
     keywords: [],
-    homepage: `https://github.com/${repositoryName}`,
-    bugs: `https://github.com/${repositoryName}/issues`,
+    homepage: `https://github.com/${repositorySlug}`,
+    bugs: `https://github.com/${repositorySlug}/issues`,
     license: 'MIT',
     author: `${authorName} <${authorEmail}>`,
     files: ['src'],
     main: './src/index.js',
     bin: `./src/bin/${packageName}.js`,
-    repository: repositoryName,
+    repository: repositorySlug,
     scripts: {
       test: 'standard -v --fix && flow && ava',
       prepack: 'build-esm'

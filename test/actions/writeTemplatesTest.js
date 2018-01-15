@@ -42,14 +42,14 @@ test.serial('writing a collection of templates', async t => {
 
 test.serial('writing the actual templates', async t => {
   const packageName = 'my-pkg'
-  const repositoryName = 'foobar/my-pkg'
+  const repositorySlug = 'foobar/my-pkg'
   const authorName = 'Foo Bar'
   const authorEmail = 'foo@example.com'
   const encryptedAuthorEmail = '!!!foo@example.com'
   const encryptedTravisApiKey = '!!!1234'
   await writeTemplates(localPath, templates, {
     packageName,
-    repositoryName,
+    repositorySlug,
     authorName,
     authorEmail,
     encryptedAuthorEmail,

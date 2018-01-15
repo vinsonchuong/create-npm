@@ -1,7 +1,13 @@
 /* @flow */
 import { exec } from 'create-npm/src/io'
 
-export default async function(localPath: string): Promise<void> {
+export default async function(
+  orgName: ?string,
+  repoName: string,
+  localPath: string
+): Promise<void> {
+  const name = orgName ? `${orgName}/${repoName}` : repoName
+
   await exec(`git init '${localPath}'`)
-  await exec('hub create', { cwd: localPath })
+  await exec(`hub create ${name}`, { cwd: localPath })
 }
