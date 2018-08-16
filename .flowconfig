@@ -4,6 +4,10 @@
 
 [libs]
 
+[lints]
+
 [options]
 module.name_mapper='^create-npm$' -> '<PROJECT_ROOT>'
 module.name_mapper='^create-npm\/\(.*\)$' -> '<PROJECT_ROOT>/\1'
+
+[strict]
