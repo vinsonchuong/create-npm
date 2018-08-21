@@ -39,7 +39,7 @@ test('bootstrapping an npm package project', async t => {
     await exec('yarn test', { cwd: path.resolve(packageName) })
 
     const commits = await getCommits(path.resolve(packageName))
-    t.true(commits[0].includes('HEAD -> master'))
+    t.true(commits[0].includes('origin/master'))
     t.true(commits[0].includes('Bootstrap project'))
   } finally {
     await remove(packageName)
