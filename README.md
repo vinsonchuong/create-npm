@@ -18,19 +18,18 @@ Running the above command will:
   * Code Style via [Prettier](https://github.com/prettier/prettier)
 * Create a GitHub repository for the project
 * Enable continuous integration and deployment via
-  [Travis CI](https://travis-ci.org/) and
-  [build-esm](https://github.com/vinsonchuong/build-esm)
+  [Travis CI](https://travis-ci.org/),
+  [build-esm](https://github.com/vinsonchuong/build-esm), and
+  [semantic-release](https://github.com/semantic-release/semantic-release)
 
 ### Prerequisites
-To use `create-npm`, the following tools must be installed and authenticated:
+To use `create-npm`, the following tools must be installed:
 
-* [npm](https://docs.npmjs.com/cli/npm)
-* [hub](https://hub.github.com/)
-* [travis](https://github.com/travis-ci/travis.rb)
+* [yarn](https://yarnpkg.com/)
+* [git](https://git-scm.com/)
 
-Alternatively, credentials for any of the above tools may be provided using
-environment variables instead:
+The following credentials must be given as environment variables:
 
-* `NPM_AUTH_TOKEN`
+* `NPM_TOKEN`
 * `GITHUB_TOKEN`
 * `TRAVIS_TOKEN`
