@@ -1,0 +1,10 @@
+/* @flow */
+export { default as flowconfig } from './flowconfig'
+export { default as gitignore } from './gitignore'
+export { default as license } from './license'
+export { default as main } from './main'
+export { default as npmignore } from './npmignore'
+export { default as packagejson } from './packagejson'
+export { default as readme } from './readme'
+export { default as test } from './test'
+export { default as travisyml } from './travisyml'
