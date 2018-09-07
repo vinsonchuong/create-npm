@@ -45,6 +45,7 @@
     ]
   },
   "ava": {
+    "cache": false,
     "require": [
       "@babel/register"
     ]
