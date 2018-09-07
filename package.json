@@ -45,7 +45,6 @@
     ]
   },
   "ava": {
-    "concurrency": 1,
     "require": [
       "@babel/register"
     ]
