@@ -2,7 +2,7 @@
 /* @flow */
 import * as path from 'path'
 import { authenticate, createRepo } from 'create-npm/lib/github'
-import { activate, encrypt } from 'create-npm/lib/travis-ci'
+import { activate, setSetting, encrypt } from 'create-npm/lib/travis-ci'
 import { getConfig, commitChanges, pushChanges } from 'create-npm/lib/git'
 import { writeTemplate } from 'create-npm/lib/template'
 import {
@@ -39,6 +39,7 @@ async function run() {
 
   console.log('Enabling Travis CI')
   await activate(repoName, travisToken)
+  await setSetting(repoName, 'build_pushes', false, travisToken)
 
   console.log('Writing project files')
   const today = new Date()
