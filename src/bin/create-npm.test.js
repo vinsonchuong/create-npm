@@ -8,7 +8,7 @@ import { remove } from 'fs-extra'
 import { run } from 'create-npm/test/helpers'
 import { authenticate, deleteRepo } from 'create-npm/lib/github'
 import { getCommits } from 'create-npm/lib/git'
-import { deactivate, isActive, getSetting } from 'create-npm/lib/travis-ci'
+import { deactivate, isActive } from 'create-npm/lib/travis-ci'
 
 const exec = promisify(childProcess.exec)
 
@@ -46,7 +46,6 @@ test('bootstrapping an npm package project', async t => {
     t.true(commits[0].includes('Bootstrap project'))
 
     t.true(await isActive(repoName, travisToken))
-    t.false(await getSetting(repoName, 'build_pushes', travisToken))
   } finally {
     await remove(packageName)
     await deactivate(repoName, travisToken)
