@@ -24,6 +24,8 @@ async function run() {
   const travisToken = process.env.TRAVIS_TOKEN
   const npmToken = process.env.NPM_TOKEN
 
+  console.log('\n')
+
   if (!repoName || !githubToken || !travisToken || !npmToken) {
     console.log(
       'Usage: GITHUB_TOKEN=? TRAVIS_TOKEN=? NPM_TOKEN=? yarn create user/repo'
