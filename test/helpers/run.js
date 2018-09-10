@@ -17,7 +17,7 @@ export default async function({
   env
 }: Config): Promise<{ stdout: string, stderr: string }> {
   return exec(
-    `node -r @babel/register ${path.resolve(
+    `node -r overdub/register ${path.resolve(
       'src',
       'bin',
       `${bin}.js`
