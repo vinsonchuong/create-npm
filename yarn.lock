@@ -1548,6 +1548,12 @@ circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
 
+clarify@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/clarify/-/clarify-2.1.0.tgz#8dd48539e202e4e009d2c7fa7fe1b69cdf262527"
+  dependencies:
+    stack-chain "^2.0.0"
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -4750,6 +4756,17 @@ osenv@0, osenv@^0.1.4, osenv@^0.1.5:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
+overdub@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/overdub/-/overdub-1.2.0.tgz#18469a6a7f4d3451effcc22541e95284d66234ef"
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@babel/register" "^7.0.0"
+    babel-preset-diff "^6.0.3"
+    clarify "^2.1.0"
+    stack-chain "^2.0.0"
+    trace "^3.1.0"
+
 p-cancelable@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/p-cancelable/-/p-cancelable-0.3.0.tgz#b9e123800bcebb7ac13a479be195b507b98d30fa"
@@ -5918,6 +5935,10 @@ ssri@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.0.tgz#fc21bfc90e03275ac3e23d5a42e38b8a1cbc130d"
 
+stack-chain@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/stack-chain/-/stack-chain-2.0.0.tgz#d73d1172af89565f07438b5bcc086831b6689b2d"
+
 stack-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.1.tgz#d4f33ab54e8e38778b0ca5cfd3b3afb12db68620"
@@ -6217,6 +6238,12 @@ tough-cookie@~2.4.3:
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
+
+trace@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/trace/-/trace-3.1.0.tgz#32709b7f2324be68e99547b12dacd17ab900b1e2"
+  dependencies:
+    stack-chain "^2.0.0"
 
 "traverse@>=0.3.0 <0.4":
   version "0.3.9"

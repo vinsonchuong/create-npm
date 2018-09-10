@@ -27,27 +27,23 @@
     "fs-extra": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "ava": "^1.0.0-beta.8",
-    "babel-preset-diff": "^6.0.3",
     "build-esm": "^4.0.1",
     "flow-bin": "^0.80.0",
     "flow-typed": "^2.5.1",
+    "overdub": "^1.2.0",
     "p-event": "^2.1.0",
     "semantic-release": "^15.9.12",
     "standard-esnext": "^5.1.7",
     "uuid": "^3.3.2"
   },
-  "babel": {
-    "presets": [
-      "diff"
-    ]
-  },
   "ava": {
     "cache": false,
-    "require": [
-      "@babel/register"
-    ]
+    "babel": {
+      "testOptions": {
+        "extends": "overdub/babel"
+      }
+    },
+    "require": "overdub/register"
   }
 }
