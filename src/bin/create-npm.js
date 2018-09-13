@@ -81,13 +81,11 @@ async function run() {
 
   console.log('Installing npm Packages')
   await addPackages(projectDirectory, 'development', [
-    '@babel/core',
-    '@babel/register',
     'ava@next',
-    'babel-preset-diff',
     'build-esm',
     'flow-bin',
     'flow-typed',
+    'overdub',
     'semantic-release',
     'standard-esnext'
   ])
