@@ -33,15 +33,13 @@ export default function({
         },
         "dependencies": {},
         "devDependencies": {},
-        "babel": {
-          "presets": [
-            "diff"
-          ]
-        },
         "ava": {
-          "require": [
-            "@babel/register"
-          ]
+          "require": "overdub/register",
+          "babel": {
+            "testOptions": {
+              "extends": "overdub/babel"
+            }
+          }
         }
       }
     `
