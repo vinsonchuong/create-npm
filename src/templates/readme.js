@@ -8,7 +8,10 @@ export default function({ repoName }: { repoName: string }): Template {
     path: 'README.md',
     content: `
       # ${packageName}
+      ![npm](https://img.shields.io/npm/v/${packageName}.svg)
       [![Build Status](https://travis-ci.org/${repoName}.svg?branch=master)](https://travis-ci.org/${repoName})
+      [![dependencies Status](https://david-dm.org/${repoName}/status.svg)](https://david-dm.org/${repoName})
+      [![devDependencies Status](https://david-dm.org/${repoName}/dev-status.svg)](https://david-dm.org/${repoName}?type=dev)
 
       An awesome package
 
