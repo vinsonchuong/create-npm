@@ -81,7 +81,7 @@ async function run() {
 
   console.log('Installing npm Packages')
   await addPackages(projectDirectory, 'development', [
-    'ava@next',
+    'ava',
     'build-esm',
     'flow-bin',
     'flow-typed',
