@@ -5,7 +5,7 @@ Bootstrap [npm](https://www.npmjs.com) packages using [Yarn](https://yarnpkg.com
 
 ## Usage
 ```sh
-yarn create npm my-pkg
+yarn create npm github-user/my-pkg
 ```
 
 Running the above command will:
