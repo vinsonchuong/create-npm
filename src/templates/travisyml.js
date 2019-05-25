@@ -11,7 +11,7 @@ export default function({
   return {
     path: '.travis.yml',
     content: `
-      group: travis_latest
+      dist: xenial
       language: node_js
       node_js: node
       cache: yarn
