@@ -27,6 +27,7 @@ export default function({
         "repository": "${repoName}",
         "scripts": {
           "prepare": "flow-typed update --skip",
+          "test": "[ -n \\"$CI\\" ] && standard -v && flow check && ava -v || standard -v --fix && flow && ava -v",
           "test": "standard -v --fix && flow && ava -v",
           "release": "semantic-release",
           "prepack": "build-esm"
