@@ -39,6 +39,9 @@
   },
   "ava": {
     "cache": false,
+    "files": [
+      "**/*.test.js"
+    ],
     "helpers": [
       "**/fixtures/**/*",
       "**/helpers/**/*"
