@@ -21,21 +21,21 @@
     "prepack": "build-esm"
   },
   "dependencies": {
-    "@octokit/rest": "^16.28.5",
+    "@octokit/rest": "^16.28.7",
     "cross-fetch": "^3.0.4",
     "dedent": "^0.7.0",
     "fs-extra": "^8.1.0"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^2.3.0",
     "build-esm": "^4.2.1",
-    "flow-bin": "^0.103.0",
-    "flow-typed": "^2.6.0",
-    "overdub": "^2.3.2",
+    "flow-bin": "^0.106.2",
+    "flow-typed": "^2.6.1",
+    "overdub": "^2.5.0",
     "p-event": "^4.1.0",
-    "semantic-release": "^15.13.18",
-    "standard-esnext": "^5.3.1",
-    "uuid": "^3.3.2"
+    "semantic-release": "^15.13.24",
+    "standard-esnext": "^5.3.3",
+    "uuid": "^3.3.3"
   },
   "ava": {
     "cache": false,
