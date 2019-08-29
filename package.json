@@ -29,9 +29,9 @@
   "devDependencies": {
     "ava": "^2.3.0",
     "build-esm": "^4.2.1",
-    "flow-bin": "^0.106.2",
+    "flow-bin": "^0.106.3",
     "flow-typed": "^2.6.1",
-    "overdub": "^2.5.0",
+    "overdub": "^2.5.1",
     "p-event": "^4.1.0",
     "semantic-release": "^15.13.24",
     "standard-esnext": "^5.3.3",
