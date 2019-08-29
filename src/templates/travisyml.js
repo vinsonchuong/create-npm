@@ -19,9 +19,7 @@ export default function({
         global:
         - secure: ${encryptedGitHubToken}
         - secure: ${encryptedNpmToken}
-      branches:
-        only:
-          - master
+      if: tag IS blank
       deploy:
         provider: script
         skip_cleanup: true
