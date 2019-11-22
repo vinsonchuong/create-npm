@@ -23,6 +23,7 @@ export default async function({
       `${bin}.js`
     )} ${args.join(' ')}`,
     {
+      // $FlowFixMe
       env: { ...process.env, ...env }
     }
   )
