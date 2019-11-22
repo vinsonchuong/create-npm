@@ -19,6 +19,7 @@ export default function({ repoName }: { repoName: string }): Template {
       [options]
       module.name_mapper='^${packageName}$' -> '<PROJECT_ROOT>'
       module.name_mapper='^${packageName}\\/\\(.*\\)$' -> '<PROJECT_ROOT>/\\1'
+      sharedmemory.hash_table_pow=21
 
       [strict]
     `
