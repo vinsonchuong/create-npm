@@ -1,0 +1,30 @@
+export default function () {
+  return {
+    path: '.github/workflows/ci.yml',
+    content: `
+      name: CI
+      on: push
+      jobs:
+        ci:
+          runs-on: ubuntu-latest
+          steps:
+          - uses: actions/checkout@v2
+          - uses: actions/setup-node@v2-beta
+            with:
+              node-version: 14
+          - uses: actions/cache@v2
+            with:
+              path: ~/.cache/yarn
+              key: \${{ runner.os }}-yarn-\${{ hashFiles('**/yarn.lock') }}
+              restore-keys: |
+                \${{ runner.os }}-yarn-
+          - run: yarn
+          - run: yarn test
+          - if: github.ref == 'refs/heads/master'
+            run: yarn release
+            env:
+              GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+              NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
+    `
+  }
+}

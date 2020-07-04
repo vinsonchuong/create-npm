@@ -1,35 +1,34 @@
 # create-npm
-[![Build Status](https://travis-ci.org/vinsonchuong/create-npm.svg?branch=master)](https://travis-ci.org/vinsonchuong/create-npm)
+[![CI Status](https://github.com/vinsonchuong/create-npm/workflows/CI/badge.svg)](https://github.com/vinsonchuong/create-npm/actions?query=workflow%3ACI)
 
-Bootstrap [npm](https://www.npmjs.com) packages using [Yarn](https://yarnpkg.com)
+Bootstrap [npm](https://www.npmjs.com) packages.
 
 ## Usage
 ```sh
+npm create npm github-user/my-pkg
+
 yarn create npm github-user/my-pkg
 ```
 
 Running the above command will:
 
 * Bootstrap a JavaScript project with:
-  * Support for ES.Next via [Babel](https://babeljs.io/)
-  * Type checking via [Flow](https://flow.org/)
   * Testing via [AVA](https://github.com/avajs/ava)
-  * Linting via [Standard](https://github.com/feross/standard)
-  * Code Style via [Prettier](https://github.com/prettier/prettier)
+  * Linting via [XO](https://github.com/xojs/xo)
 * Create a GitHub repository for the project
 * Enable continuous integration and deployment via
-  [Travis CI](https://travis-ci.org/),
-  [build-esm](https://github.com/vinsonchuong/build-esm), and
+  [GitHub Actions](https://github.com/features/actions) and
   [semantic-release](https://github.com/semantic-release/semantic-release)
 
 ### Prerequisites
 To use `create-npm`, the following tools must be installed:
 
-* [yarn](https://yarnpkg.com/)
+* [Node.js](https://nodejs.org/en/)
 * [git](https://git-scm.com/)
 
 The following credentials must be given as environment variables:
 
 * `NPM_TOKEN`
 * `GITHUB_TOKEN`
-* `TRAVIS_TOKEN`
+
+The GitHub token is used to add the NPM token to your newly created repository.

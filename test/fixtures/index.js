@@ -1,2 +1,1 @@
-/* @flow */
-export { default as withDirectory } from './with-directory'
+export {default as withDirectory} from './with-directory.js'
