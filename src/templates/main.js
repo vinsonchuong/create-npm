@@ -1,11 +1,7 @@
-/* @flow */
-import type { Template } from 'create-npm/lib/template'
-
-export default function(_: {}): Template {
+export default function () {
   return {
     path: 'index.js',
     content: `
-      /* @flow */
       export default 'Hello World!'
     `
   }

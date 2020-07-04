@@ -1,13 +1,4 @@
-/* @flow */
-import type { Template } from 'create-npm/lib/template'
-
-export default function({
-  authorName,
-  today
-}: {
-  authorName: string,
-  today: Date
-}): Template {
+export default function ({authorName, today}) {
   const currentYear = today.getFullYear()
 
   return {
