@@ -16,6 +16,9 @@ jobs:
           ${{ runner.os }}-yarn-
     - run: yarn
     - run: yarn test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     - if: github.ref == 'refs/heads/master'
       run: yarn release
       env:
