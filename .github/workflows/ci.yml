@@ -15,7 +15,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
     - run: yarn
-    - run: git config --global user.name 'Vinson Chuong'
+    - run: git config --global user.name 'John Doe'
+    - run: git config --global user.email 'jdoe@example.com'
     - run: yarn test
       env:
         GITHUB_TOKEN: ${{ secrets.PRIVILEGED_GITHUB_TOKEN }}
