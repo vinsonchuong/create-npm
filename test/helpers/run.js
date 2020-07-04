@@ -1,30 +1,14 @@
-/* @flow */
 import * as path from 'path'
 import * as childProcess from 'child_process'
-import { promisify } from 'util'
-
-type Config = {
-  bin: string,
-  args: Array<string>,
-  env: { [string]: string }
-}
+import {promisify} from 'util'
 
 const exec = promisify(childProcess.exec)
 
-export default async function({
-  bin,
-  args,
-  env
-}: Config): Promise<{ stdout: string, stderr: string }> {
+export default async function ({bin, args, env}) {
   return exec(
-    `node -r overdub/register ${path.resolve(
-      'src',
-      'bin',
-      `${bin}.js`
-    )} ${args.join(' ')}`,
+    `node ${path.resolve('src', 'bin', `${bin}.js`)} ${args.join(' ')}`,
     {
-      // $FlowFixMe
-      env: { ...process.env, ...env }
+      env: {...process.env, ...env}
     }
   )
 }

@@ -1,7 +1,4 @@
-/* @flow */
-import type { Template } from 'create-npm/lib/template'
-
-export default function({ repoName }: { repoName: string }): Template {
+export default function ({repoName}) {
   const [, packageName] = repoName.split('/')
 
   return {
@@ -9,7 +6,7 @@ export default function({ repoName }: { repoName: string }): Template {
     content: `
       # ${packageName}
       ![npm](https://img.shields.io/npm/v/${packageName}.svg)
-      [![Build Status](https://travis-ci.org/${repoName}.svg?branch=master)](https://travis-ci.org/${repoName})
+      [![CI Status](https://github.com/${repoName}/workflows/CI/badge.svg)](https://github.com/${repoName}/actions?query=workflow%3ACI)
       [![dependencies Status](https://david-dm.org/${repoName}/status.svg)](https://david-dm.org/${repoName})
       [![devDependencies Status](https://david-dm.org/${repoName}/dev-status.svg)](https://david-dm.org/${repoName}?type=dev)
 

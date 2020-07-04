@@ -1,15 +1,4 @@
-/* @flow */
-import type { Template } from 'create-npm/lib/template'
-
-export default function({
-  authorName,
-  authorEmail,
-  repoName
-}: {
-  authorName: string,
-  authorEmail: string,
-  repoName: string
-}): Template {
+export default function ({authorName, authorEmail, repoName}) {
   const [, packageName] = repoName.split('/')
 
   return {
@@ -26,19 +15,25 @@ export default function({
         "author": "${authorName} <${authorEmail}>",
         "repository": "${repoName}",
         "scripts": {
-          "prepare": "flow-typed update --skip",
-          "test": "if [ -n \\"$CI\\" ]; then standard -v && flow check && ava -v; else standard -v --fix && flow && ava -v; fi",
+          "test": "xo && ava",
           "release": "semantic-release",
           "prepack": "build-esm"
         },
+        "type": "module",
         "dependencies": {},
         "devDependencies": {},
         "ava": {
-          "require": "overdub/register",
-          "babel": {
-            "testOptions": {
-              "extends": "overdub/babel"
-            }
+          "verbose": true
+        },
+        "xo": {
+          "prettier": true,
+          "space": 2,
+          "semicolon": false,
+          "rules": {
+            "import/extensions": "off",
+            "import/no-anonymous-default-export": "off",
+            "import/no-useless-path-segments": "off",
+            "unicorn/import-index": "off"
           }
         }
       }

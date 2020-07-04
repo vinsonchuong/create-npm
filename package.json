@@ -1,9 +1,8 @@
 {
   "name": "create-npm",
   "version": "0.0.21",
-  "description": "Bootstrap npm packages using Yarn",
+  "description": "Bootstrap npm packages",
   "keywords": [
-    "yarn",
     "npm",
     "bootstrap"
   ],
@@ -11,46 +10,45 @@
   "bugs": "https://github.com/vinsonchuong/create-npm/issues",
   "license": "MIT",
   "author": "Vinson Chuong <vinsonchuong@gmail.com>",
+  "type": "module",
   "main": "./src/index.js",
   "bin": "./src/bin/create-npm.js",
   "repository": "vinsonchuong/create-npm",
   "scripts": {
-    "prepare": "flow-typed update --skip",
-    "test": "if [ -n \"$CI\" ]; then standard -v && flow check && ava -v; else standard -v --fix && flow && ava -v; fi",
-    "release": "semantic-release",
-    "prepack": "build-esm"
+    "test": "xo && ava",
+    "release": "semantic-release"
   },
   "dependencies": {
-    "@octokit/rest": "^16.35.0",
-    "cross-fetch": "^3.0.4",
+    "@octokit/rest": "^18.0.0",
+    "cross-fetch": "^3.0.5",
     "dedent": "^0.7.0",
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^9.0.1",
+    "tweetsodium": "^0.0.5"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
-    "build-esm": "^4.2.2",
-    "flow-bin": "^0.112.0",
-    "flow-typed": "^2.6.2",
-    "overdub": "^2.5.1",
-    "p-event": "^4.1.0",
-    "semantic-release": "^15.13.31",
-    "standard-esnext": "^5.3.4",
-    "uuid": "^3.3.3"
+    "ava": "^3.9.0",
+    "p-event": "^4.2.0",
+    "semantic-release": "^17.1.1",
+    "uuid": "^8.2.0",
+    "xo": "^0.32.1"
   },
   "ava": {
+    "verbose": true,
+    "timeout": "10m",
     "cache": false,
     "files": [
       "**/*.test.js"
-    ],
-    "helpers": [
-      "**/fixtures/**/*",
-      "**/helpers/**/*"
-    ],
-    "babel": {
-      "testOptions": {
-        "extends": "overdub/babel"
-      }
-    },
-    "require": "overdub/register"
+    ]
+  },
+  "xo": {
+    "prettier": true,
+    "space": 2,
+    "semicolon": false,
+    "rules": {
+      "import/extensions": "off",
+      "import/no-anonymous-default-export": "off",
+      "import/no-useless-path-segments": "off",
+      "unicorn/import-index": "off"
+    }
   }
 }
