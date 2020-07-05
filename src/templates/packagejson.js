@@ -16,8 +16,7 @@ export default function ({authorName, authorEmail, repoName}) {
         "repository": "${repoName}",
         "scripts": {
           "test": "xo && ava",
-          "release": "semantic-release",
-          "prepack": "build-esm"
+          "release": "semantic-release"
         },
         "type": "module",
         "dependencies": {},
