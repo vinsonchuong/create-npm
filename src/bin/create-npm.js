@@ -15,7 +15,8 @@ import {
   npmignore,
   main,
   test,
-  githubactions
+  githubactions,
+  dependabot
 } from '../templates/index.js'
 import {addPackages} from '../../lib/yarn/index.js'
 
@@ -57,6 +58,7 @@ async function run() {
   await writeTemplate(projectDirectory, main({}))
   await writeTemplate(projectDirectory, test({}))
   await writeTemplate(projectDirectory, githubactions({}))
+  await writeTemplate(projectDirectory, dependabot({}))
 
   console.log('Installing npm Packages')
   await addPackages(projectDirectory, 'development', [
