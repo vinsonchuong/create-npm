@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as path from 'path'
+import path from 'path'
 import {
   authenticate,
   createRepo,
