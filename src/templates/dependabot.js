@@ -17,12 +17,12 @@ export default function () {
                     repo: context.payload.repository.name,
                     pull_number: context.payload.pull_request.number,
                     event: 'APPROVE'
-                    })
-                    github.pullRequests.merge({
-                      owner: context.payload.repository.owner.login,
-                      repo: context.payload.repository.name,
-                      pull_number: context.payload.pull_request.number
-                    })
+                  })
+                  github.pullRequests.merge({
+                    owner: context.payload.repository.owner.login,
+                    repo: context.payload.repository.name,
+                    pull_number: context.payload.pull_request.number
+                  })
     `
   }
 }
