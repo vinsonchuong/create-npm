@@ -8,11 +8,21 @@ export default function () {
         dependabot:
           runs-on: ubuntu-latest
           steps:
-            - uses: actions/checkout@v2
-            - uses: ahmadnassri/action-dependabot-auto-merge@v2
+            - if: \${{ github.actor == 'dependabot[bot]' }}
+              uses: actions/github-script@v3
               with:
-                target: minor
-                github-token: \${{ secrets.GITHUB_TOKEN }}
+                script: |
+                  github.pullRequests.createReview({
+                    owner: context.payload.repository.owner.login,
+                    repo: context.payload.repository.name,
+                    pull_number: context.payload.pull_request.number,
+                    event: 'APPROVE'
+                    })
+                    github.pullRequests.merge({
+                      owner: context.payload.repository.owner.login,
+                      repo: context.payload.repository.name,
+                      pull_number: context.payload.pull_request.number
+                    })
     `
   }
 }
