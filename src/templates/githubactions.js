@@ -11,7 +11,7 @@ export default function () {
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v2-beta
             with:
-              node-version: 14
+              node-version: 15
           - uses: actions/cache@v2
             with:
               path: ~/.cache/yarn
