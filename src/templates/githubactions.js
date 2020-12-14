@@ -1,4 +1,4 @@
-export default function () {
+export default function ({branchName}) {
   return {
     path: '.github/workflows/ci.yml',
     content: `
@@ -20,7 +20,7 @@ export default function () {
                 \${{ runner.os }}-yarn-
           - run: yarn
           - run: yarn test
-          - if: github.ref == 'refs/heads/master'
+          - if: github.ref == 'refs/heads/${branchName}'
             run: yarn release
             env:
               GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
