@@ -26,11 +26,11 @@
     "tweetsodium": "^0.0.5"
   },
   "devDependencies": {
-    "ava": "^3.13.0",
+    "ava": "^3.14.0",
     "p-event": "^4.2.0",
     "semantic-release": "^17.3.0",
-    "uuid": "^8.3.1",
-    "xo": "^0.35.0"
+    "uuid": "^8.3.2",
+    "xo": "^0.36.1"
   },
   "ava": {
     "verbose": true,
