@@ -5,7 +5,12 @@ import {
   createRepo,
   addSecretToRepo
 } from '../../lib/github/index.js'
-import {getConfig, commitChanges, pushChanges} from '../../lib/git/index.js'
+import {
+  getConfig,
+  getBranchName,
+  commitChanges,
+  pushChanges
+} from '../../lib/git/index.js'
 import {writeTemplate} from '../../lib/template/index.js'
 import {
   readme,
@@ -72,9 +77,10 @@ async function run() {
     projectDirectory,
     `feat(${packageName}): Bootstrap project`
   )
+  const branchName = await getBranchName(projectDirectory)
 
   console.log('Pushing Changes')
-  await pushChanges(projectDirectory, repoName, githubToken)
+  await pushChanges(projectDirectory, repoName, branchName, githubToken)
 }
 
 run()
