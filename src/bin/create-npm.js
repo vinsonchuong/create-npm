@@ -5,12 +5,7 @@ import {
   createRepo,
   addSecretToRepo
 } from '../../lib/github/index.js'
-import {
-  getConfig,
-  getBranchName,
-  commitChanges,
-  pushChanges
-} from '../../lib/git/index.js'
+import {getConfig, commitChanges, pushChanges} from '../../lib/git/index.js'
 import {writeTemplate} from '../../lib/template/index.js'
 import {
   readme,
@@ -38,7 +33,7 @@ async function run() {
   }
 
   const [, packageName] = repoName.split('/')
-  const branchName = await getConfig('init.defaultBranch') || 'master'
+  const branchName = (await getConfig('init.defaultBranch')) || 'master'
 
   console.log('Creating GitHub Repository')
   const githubApi = await authenticate(githubToken)
