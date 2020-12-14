@@ -38,6 +38,7 @@ async function run() {
   }
 
   const [, packageName] = repoName.split('/')
+  const branchName = await getConfig('init.defaultBranch') || 'master'
 
   console.log('Creating GitHub Repository')
   const githubApi = await authenticate(githubToken)
@@ -57,12 +58,12 @@ async function run() {
   await writeTemplate(projectDirectory, gitignore({}))
   await writeTemplate(
     projectDirectory,
-    packagejson({repoName, authorName, authorEmail})
+    packagejson({repoName, authorName, authorEmail, branchName})
   )
   await writeTemplate(projectDirectory, npmignore({}))
   await writeTemplate(projectDirectory, main({}))
   await writeTemplate(projectDirectory, test({}))
-  await writeTemplate(projectDirectory, githubactions({}))
+  await writeTemplate(projectDirectory, githubactions({branchName}))
   await writeTemplate(projectDirectory, dependabot({}))
 
   console.log('Installing npm Packages')
@@ -77,7 +78,6 @@ async function run() {
     projectDirectory,
     `feat(${packageName}): Bootstrap project`
   )
-  const branchName = await getBranchName(projectDirectory)
 
   console.log('Pushing Changes')
   await pushChanges(projectDirectory, repoName, branchName, githubToken)
