@@ -26,11 +26,11 @@
     "tweetsodium": "^0.0.5"
   },
   "devDependencies": {
-    "ava": "^3.14.0",
+    "ava": "^3.15.0",
     "p-event": "^4.2.0",
-    "semantic-release": "^17.3.0",
+    "semantic-release": "^17.3.1",
     "uuid": "^8.3.2",
-    "xo": "^0.36.1"
+    "xo": "^0.37.1"
   },
   "ava": {
     "verbose": true,
@@ -45,10 +45,7 @@
     "space": 2,
     "semicolon": false,
     "rules": {
-      "import/extensions": "off",
-      "import/no-anonymous-default-export": "off",
-      "import/no-useless-path-segments": "off",
-      "unicorn/import-index": "off"
+      "import/no-anonymous-default-export": "off"
     }
   }
 }
