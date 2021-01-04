@@ -1,5 +1,4 @@
 import tempy from 'tempy'
-import {v1 as uuid} from 'uuid'
 import fs from 'fs-extra'
 
 export default function (test) {
