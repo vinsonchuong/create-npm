@@ -18,7 +18,7 @@ import {
   githubactions,
   dependabot
 } from '../templates/index.js'
-import {addPackages} from '../../lib/yarn/index.js'
+import {usev2, addPackages} from '../../lib/yarn/index.js'
 
 async function run() {
   const repoName = process.argv[2]
@@ -62,6 +62,7 @@ async function run() {
   await writeTemplate(projectDirectory, dependabot({}))
 
   console.log('Installing npm Packages')
+  await usev2()
   await addPackages(projectDirectory, 'development', [
     'ava',
     'xo',
