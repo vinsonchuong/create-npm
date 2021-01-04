@@ -1,6 +1,7 @@
 import test from 'ava'
 import childProcess from 'child_process'
 import {promisify} from 'util'
+import path from 'path'
 import {v1 as uuid} from 'uuid'
 import {run} from '../../test/helpers/index.js'
 import {withDirectory} from '../../test/fixtures/index.js'
@@ -15,6 +16,7 @@ test('bootstrapping an npm package project', async (t) => {
   const {directory} = t.context
 
   const repoName = `vinsonchuong/${uuid()}`
+  const [, packageName] = repoName.split('/')
 
   const githubToken = process.env.GITHUB_TOKEN
   const npmToken = process.env.NPM_TOKEN
@@ -38,9 +40,9 @@ test('bootstrapping an npm package project', async (t) => {
     await deleteRepo(await authenticate(githubToken), repoName)
   })
 
-  await exec('yarn test', {cwd: directory})
+  await exec('yarn test', {cwd: path.join(directory, packageName)})
 
-  const commits = await getCommits(directory)
+  const commits = await getCommits(path.join(directory, packageName))
   t.true(
     commits[0].includes('origin/master') ||
       commits[0].includes('HEAD -> master')
