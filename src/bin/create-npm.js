@@ -62,7 +62,7 @@ async function run() {
   await writeTemplate(projectDirectory, dependabot({}))
 
   console.log('Installing npm Packages')
-  await usev2()
+  await usev2(projectDirectory)
   await addPackages(projectDirectory, 'development', [
     'ava',
     'xo',
