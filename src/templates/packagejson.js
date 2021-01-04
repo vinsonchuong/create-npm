@@ -29,10 +29,7 @@ export default function ({authorName, authorEmail, repoName, branchName}) {
           space: 2,
           semicolon: false,
           rules: {
-            'import/extensions': 'off',
-            'import/no-anonymous-default-export': 'off',
-            'import/no-useless-path-segments': 'off',
-            'unicorn/import-index': 'off'
+            'import/no-anonymous-default-export': 'off'
           }
         },
         release: branchName === 'master' ? undefined : {branches: [branchName]}
