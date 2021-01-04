@@ -14,7 +14,7 @@ export default function ({branchName}) {
               node-version: 15
           - uses: actions/cache@v2
             with:
-              path: ~/.cache/yarn
+              path: ./.yarn/cache
               key: \${{ runner.os }}-yarn-\${{ hashFiles('**/yarn.lock') }}
               restore-keys: |
                 \${{ runner.os }}-yarn-
