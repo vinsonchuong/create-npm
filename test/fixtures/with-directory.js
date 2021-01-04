@@ -1,9 +1,10 @@
+import tempy from 'tempy'
 import {v1 as uuid} from 'uuid'
 import fs from 'fs-extra'
 
 export default function (test) {
   test.beforeEach(async (t) => {
-    const directory = uuid()
+    const directory = tempy.directory()
     await fs.ensureDir(directory)
     Object.assign(t.context, {directory})
   })
