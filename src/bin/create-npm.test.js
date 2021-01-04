@@ -1,18 +1,20 @@
 import test from 'ava'
-import path from 'path'
 import childProcess from 'child_process'
 import {promisify} from 'util'
 import {v1 as uuid} from 'uuid'
-import fs from 'fs-extra'
 import {run} from '../../test/helpers/index.js'
+import {withDirectory} from '../../test/fixtures/index.js'
 import {authenticate, deleteRepo} from '../../lib/github/index.js'
 import {getCommits} from '../../lib/git/index.js'
 
 const exec = promisify(childProcess.exec)
 
+withDirectory(test)
+
 test('bootstrapping an npm package project', async (t) => {
+  const {directory} = t.context
+
   const repoName = `vinsonchuong/${uuid()}`
-  const [, packageName] = repoName.split('/')
 
   const githubToken = process.env.GITHUB_TOKEN
   const npmToken = process.env.NPM_TOKEN
@@ -21,6 +23,7 @@ test('bootstrapping an npm package project', async (t) => {
   }
 
   const {stdout, stderr} = await run({
+    cwd: directory,
     bin: 'create-npm',
     args: [repoName],
     env: {
@@ -32,13 +35,12 @@ test('bootstrapping an npm package project', async (t) => {
   t.log(stderr)
 
   t.teardown(async () => {
-    await fs.remove(packageName)
     await deleteRepo(await authenticate(githubToken), repoName)
   })
 
-  await exec('yarn test', {cwd: path.resolve(packageName)})
+  await exec('yarn test', {cwd: directory})
 
-  const commits = await getCommits(path.resolve(packageName))
+  const commits = await getCommits(directory)
   t.true(
     commits[0].includes('origin/master') ||
       commits[0].includes('HEAD -> master')
