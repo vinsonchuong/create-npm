@@ -9,7 +9,7 @@ export default function () {
           runs-on: ubuntu-latest
           steps:
             - if: \${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
-              run: gh pr merge --auto --merge \${{ github.event.pull_request.html_url }}
+              run: gh pr merge --auto --squash \${{ github.event.pull_request.html_url }}
               env:
                 GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
     `
