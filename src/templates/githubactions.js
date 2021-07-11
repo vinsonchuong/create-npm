@@ -12,7 +12,7 @@ export default function ({branchName}) {
           - uses: actions/setup-node@v2
             with:
               node-version: 16
-              cache: npm
+              cache: yarn
           - run: yarn
           - run: yarn test
           - if: github.ref == 'refs/heads/${branchName}'
