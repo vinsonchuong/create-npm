@@ -5,6 +5,11 @@ export default function () {
       **/*.test.js
       **/test.js
       test/
+
+      .yarn/
+      .yarnrc.yml
+
+      .github/
     `
   }
 }
