@@ -12,6 +12,6 @@ export default function () {
               run: gh pr merge --auto --squash \${{ github.event.pull_request.html_url }}
               env:
                 GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-    `
+    `,
   }
 }

@@ -9,6 +9,6 @@ export default function () {
       !/.yarn/plugins
       !/.yarn/sdks
       !/.yarn/versions
-    `
+    `,
   }
 }

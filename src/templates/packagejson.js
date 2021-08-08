@@ -16,26 +16,26 @@ export default function ({authorName, authorEmail, repoName, branchName}) {
         repository: `${repoName}`,
         scripts: {
           test: 'xo && ava',
-          release: 'semantic-release'
+          release: 'semantic-release',
         },
         type: 'module',
         dependencies: {},
         devDependencies: {},
         ava: {
-          verbose: true
+          verbose: true,
         },
         xo: {
           prettier: true,
           space: 2,
           semicolon: false,
           rules: {
-            'import/no-anonymous-default-export': 'off'
-          }
+            'import/no-anonymous-default-export': 'off',
+          },
         },
-        release: branchName === 'master' ? undefined : {branches: [branchName]}
+        release: branchName === 'master' ? undefined : {branches: [branchName]},
       },
       null,
-      2
-    )
+      2,
+    ),
   }
 }
