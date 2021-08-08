@@ -1,4 +1,5 @@
 import childProcess from 'node:child_process'
+import process from 'node:process'
 import {promisify} from 'node:util'
 import path from 'node:path'
 import test from 'ava'
@@ -30,8 +31,8 @@ test('bootstrapping an npm package project', async (t) => {
     args: [repoName],
     env: {
       GITHUB_TOKEN: githubToken,
-      NPM_TOKEN: npmToken
-    }
+      NPM_TOKEN: npmToken,
+    },
   })
   t.log(stdout)
   t.log(stderr)
@@ -45,7 +46,7 @@ test('bootstrapping an npm package project', async (t) => {
   const commits = await getCommits(path.join(directory, packageName))
   t.true(
     commits[0].includes('origin/master') ||
-      commits[0].includes('HEAD -> master')
+      commits[0].includes('HEAD -> master'),
   )
   t.true(commits[0].includes('Bootstrap project'))
 })

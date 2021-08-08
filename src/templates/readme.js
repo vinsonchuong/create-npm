@@ -19,6 +19,6 @@ export default function ({repoName}) {
       \`\`\`sh
       yarn add ${packageName}
       \`\`\`
-    `
+    `,
   }
 }

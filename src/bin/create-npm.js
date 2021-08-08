@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import path from 'node:path'
+import process from 'node:process'
 import {
   authenticate,
   createRepo,
-  addSecretToRepo
+  addSecretToRepo,
 } from '../../lib/github/index.js'
 import {getConfig, commitChanges, pushChanges} from '../../lib/git/index.js'
 import {writeTemplate} from '../../lib/template/index.js'
@@ -16,7 +17,7 @@ import {
   main,
   test,
   githubactions,
-  dependabot
+  dependabot,
 } from '../templates/index.js'
 import {usev2, addPackages} from '../../lib/yarn/index.js'
 
@@ -53,7 +54,7 @@ async function run() {
   await writeTemplate(projectDirectory, gitignore({}))
   await writeTemplate(
     projectDirectory,
-    packagejson({repoName, authorName, authorEmail, branchName})
+    packagejson({repoName, authorName, authorEmail, branchName}),
   )
   await writeTemplate(projectDirectory, npmignore({}))
   await writeTemplate(projectDirectory, main({}))
@@ -66,13 +67,13 @@ async function run() {
   await addPackages(projectDirectory, 'development', [
     'ava',
     'xo',
-    'semantic-release'
+    'semantic-release',
   ])
 
   console.log('Committing Changes')
   await commitChanges(
     projectDirectory,
-    `feat(${packageName}): Bootstrap project`
+    `feat(${packageName}): Bootstrap project`,
   )
 
   console.log('Pushing Changes')

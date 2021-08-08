@@ -3,6 +3,6 @@ export default function () {
     path: 'index.js',
     content: `
       export default 'Hello World!'
-    `
+    `,
   }
 }
