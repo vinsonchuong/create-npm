@@ -8,6 +8,6 @@ export default function () {
       test('exporting "Hello World!"', (t) => {
         t.is(greeting, 'Hello World!')
       })
-    `
+    `,
   }
 }
