@@ -1,0 +1,17 @@
+export default function () {
+  return {
+    path: '.github/workflows/dependabot.yml',
+    content: `
+      name: Dependabot
+      on: pull_request_target
+      jobs:
+        dependabot:
+          runs-on: ubuntu-latest
+          steps:
+            - if: \${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+              run: gh pr merge --auto --rebase \${{ github.event.pull_request.html_url }}
+              env:
+                GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+    `,
+  }
+}
