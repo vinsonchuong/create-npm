@@ -19,7 +19,9 @@ Running the above command will:
 * Enable continuous integration and deployment via
   [GitHub Actions](https://github.com/features/actions) and
   [semantic-release](https://github.com/semantic-release/semantic-release)
-* Automatic merging of Dependabot security updates
+* Automatic updates of dependencies using Dependabot
+  * Security updates
+  * Versions of `dependencies` and `devDependencies`
 
 ### Prerequisites
 To use `create-npm`, the following tools must be installed:
