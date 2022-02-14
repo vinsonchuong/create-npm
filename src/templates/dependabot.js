@@ -1,17 +1,16 @@
-export default function () {
+export default function ({}) {
   return {
-    path: '.github/workflows/dependabot.yml',
+    path: '.github/dependabot.yml',
     content: `
-      name: Dependabot
-      on: pull_request_target
-      jobs:
-        dependabot:
-          runs-on: ubuntu-latest
-          steps:
-            - if: \${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
-              run: gh pr merge --auto --squash \${{ github.event.pull_request.html_url }}
-              env:
-                GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+      version: 2
+      updates:
+        - package-ecosystem: npm
+          directory: /
+          schedule:
+            interval: daily
+          commit-message:
+            prefix: 'fix(deps):'
+            prefix-development: 'chore(deps):'
     `,
   }
 }
