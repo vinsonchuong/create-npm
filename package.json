@@ -26,7 +26,7 @@
     "tweetsodium": "^0.0.5"
   },
   "devDependencies": {
-    "ava": "^3.15.0",
+    "ava": "^4.0.1",
     "p-event": "^5.0.1",
     "semantic-release": "^19.0.2",
     "tempy": "^2.0.0",
