@@ -18,7 +18,7 @@ import {
   test,
   githubactions,
   dependabotAction,
-  dependabot
+  dependabot,
 } from '../templates/index.js'
 import {usev2, addPackages} from '../../lib/yarn/index.js'
 
