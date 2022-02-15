@@ -16,7 +16,7 @@ import {
   npmignore,
   main,
   test,
-  githubactions,
+  ciAction,
   dependabotAction,
   dependabot,
 } from '../templates/index.js'
@@ -60,7 +60,7 @@ async function run() {
   await writeTemplate(projectDirectory, npmignore({}))
   await writeTemplate(projectDirectory, main({}))
   await writeTemplate(projectDirectory, test({}))
-  await writeTemplate(projectDirectory, githubactions({branchName}))
+  await writeTemplate(projectDirectory, ciAction({branchName}))
   await writeTemplate(projectDirectory, dependabotAction({}))
   await writeTemplate(projectDirectory, dependabot({}))
 
