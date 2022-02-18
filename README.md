@@ -5,14 +5,13 @@ Bootstrap [npm](https://www.npmjs.com) packages.
 
 ## Usage
 ```sh
-npm create npm github-user/my-pkg
-
 yarn create npm github-user/my-pkg
 ```
 
 Running the above command will:
 
 * Bootstrap a JavaScript project with:
+  * Package management using [Yarn Classic](https://classic.yarnpkg.com/lang/en/)
   * Testing via [AVA](https://github.com/avajs/ava)
   * Linting via [XO](https://github.com/xojs/xo)
 * Create a GitHub repository for the project
