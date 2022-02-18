@@ -48,6 +48,5 @@
     "rules": {
       "import/no-anonymous-default-export": "off"
     }
-  },
-  "packageManager": "yarn@3.1.1"
+  }
 }
