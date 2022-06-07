@@ -1,9 +1,9 @@
-import tempy from 'tempy'
+import {temporaryDirectory} from 'tempy'
 import fs from 'fs-extra'
 
 export default function (test) {
   test.beforeEach(async (t) => {
-    const directory = tempy.directory()
+    const directory = temporaryDirectory()
     await fs.ensureDir(directory)
     Object.assign(t.context, {directory})
   })
