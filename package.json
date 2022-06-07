@@ -22,11 +22,11 @@
     "@octokit/rest": "^18.9.0",
     "cross-fetch": "^3.1.4",
     "dedent": "^0.7.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.1.0",
     "tweetsodium": "^0.0.6"
   },
   "devDependencies": {
-    "ava": "^4.0.1",
+    "ava": "^4.3.0",
     "p-event": "^5.0.1",
     "semantic-release": "^19.0.2",
     "tempy": "^3.0.0",
