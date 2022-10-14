@@ -3,7 +3,7 @@ export default function ({branchName}) {
     path: '.github/workflows/ci.yml',
     content: `
       name: CI
-      on: push
+      on: [push, pull_request]
       jobs:
         ci:
           runs-on: ubuntu-latest
