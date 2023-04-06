@@ -20,7 +20,7 @@ import {
   dependabotAction,
   dependabot,
 } from '../templates/index.js'
-import {addPackages} from '../../lib/yarn/index.js'
+import {setupPackageManager, addPackages} from '../../lib/yarn/index.js'
 
 const repoName = process.argv[2]
 const githubToken = process.env.GITHUB_TOKEN
@@ -64,6 +64,7 @@ await writeTemplate(projectDirectory, dependabotAction({}))
 await writeTemplate(projectDirectory, dependabot({}))
 
 console.log('Installing npm Packages')
+await setupPackageManager(projectDirectory)
 await addPackages(projectDirectory, 'development', [
   'ava',
   'xo',
