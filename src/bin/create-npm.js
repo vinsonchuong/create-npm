@@ -5,6 +5,7 @@ import {
   authenticate,
   createRepo,
   addSecretToRepo,
+  enableActionsPermissions,
 } from '../../lib/github/index.js'
 import {getConfig, commitChanges, pushChanges} from '../../lib/git/index.js'
 import {writeTemplate} from '../../lib/template/index.js'
@@ -43,6 +44,9 @@ await createRepo(githubApi, repoName)
 
 console.log('Adding NPM Token to GitHub Repository')
 await addSecretToRepo(githubApi, repoName, 'NPM_TOKEN', npmToken)
+
+console.log('Enabling Github Actions Workflow Permissions')
+await enableActionsPermissions(githubApi, repoName)
 
 console.log('Writing project files')
 const today = new Date()
