@@ -17,6 +17,7 @@ import {
   main,
   test,
   ciAction,
+  prAction,
   dependabotAction,
   dependabot,
 } from '../templates/index.js'
@@ -60,6 +61,7 @@ await writeTemplate(projectDirectory, npmignore({}))
 await writeTemplate(projectDirectory, main({}))
 await writeTemplate(projectDirectory, test({}))
 await writeTemplate(projectDirectory, ciAction({branchName}))
+await writeTemplate(projectDirectory, prAction())
 await writeTemplate(projectDirectory, dependabotAction({}))
 await writeTemplate(projectDirectory, dependabot({}))
 
