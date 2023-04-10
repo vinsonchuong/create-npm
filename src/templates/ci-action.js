@@ -3,7 +3,10 @@ export default function ({branchName}) {
     path: '.github/workflows/ci.yml',
     content: `
       name: CI
-      on: [push, pull_request]
+      on:
+        push:
+          branches:
+            - ${branchName}
       jobs:
         ci:
           runs-on: ubuntu-latest
@@ -15,8 +18,7 @@ export default function ({branchName}) {
               cache: yarn
           - run: yarn
           - run: yarn test
-          - if: github.ref == 'refs/heads/${branchName}'
-            run: yarn release
+          - run: yarn release
             env:
               GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
               NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
