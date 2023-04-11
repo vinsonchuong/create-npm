@@ -3,5 +3,6 @@ test/
 
 .yarn/
 .yarnrc.yml
+yarn.lock
 
 .github/
