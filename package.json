@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "ava": "^5.2.0",
-    "p-event": "^5.0.1",
+    "p-event": "^6.0.0",
     "semantic-release": "^21.0.1",
     "tempy": "^3.0.0",
     "uuid": "^9.0.0",
