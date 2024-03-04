@@ -6721,11 +6721,11 @@ __metadata:
   linkType: hard
 
 "p-event@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "p-event@npm:6.0.0"
+  version: 6.0.1
+  resolution: "p-event@npm:6.0.1"
   dependencies:
     p-timeout: "npm:^6.1.2"
-  checksum: b951b4e0b17ec5559cefa713f813262447af0c4af66bf22a7c05f9a840ca9cf504daf99f40e508465c1b927189023faaec0452fe785152a73e70e2ac0c0a1d07
+  checksum: c2da4d3f445376db2130d740b41309f97e8802d17277590684ca51cdcafcc77a024ccdd6b1a24c275c49c3c4ef57bbfc499e6d2b3b18813c774aaceb81cde7b4
   languageName: node
   linkType: hard
 
