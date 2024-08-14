@@ -5477,18 +5477,18 @@ __metadata:
   linkType: hard
 
 "libsodium-wrappers@npm:^0.7.13":
-  version: 0.7.14
-  resolution: "libsodium-wrappers@npm:0.7.14"
+  version: 0.7.15
+  resolution: "libsodium-wrappers@npm:0.7.15"
   dependencies:
-    libsodium: "npm:^0.7.14"
-  checksum: a0ce28968444e5d5d8d04ac08ffcb4d9709a5f7ddcc3e98f38375a80f4f35a4b990bd80b40d5a0c849c8caebdecc6a0f70c59d44275eed3c5c0d0c2f6894c4cd
+    libsodium: "npm:^0.7.15"
+  checksum: 852c4879f3b3c48332fe704454c4dfc2a1387f9f3930faf84d8626c9670f93365e56aa186d14e2995e5d352f08af07c99c06a2c26d5f44818039f1014d404171
   languageName: node
   linkType: hard
 
-"libsodium@npm:^0.7.14":
-  version: 0.7.14
-  resolution: "libsodium@npm:0.7.14"
-  checksum: 691146a19d4047e1dc2181cd29aa572e5a1de651c4f5bc42475a0626ffc02908b437216808b59a773883567053a110b88cffe6ac47cb3a64ca99f7e68dedbcad
+"libsodium@npm:^0.7.15":
+  version: 0.7.15
+  resolution: "libsodium@npm:0.7.15"
+  checksum: 7bdb529681f30be0533f33921509c36823d18f6fc158d66842e50d33cd9635ebb0dd02eb1fe3b51e192996ff173949f846793e10103371c8b179e5c29525556c
   languageName: node
   linkType: hard
 
