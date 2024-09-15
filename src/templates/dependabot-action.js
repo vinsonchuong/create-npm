@@ -9,10 +9,10 @@ export default function () {
           if: \${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
           runs-on: ubuntu-latest
           steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               with:
                 ref: \${{ github.event.pull_request.head.sha }}
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                 node-version: latest
                 cache: yarn
